@@ -1,10 +1,27 @@
-from django.shortcuts import render
-from .models import Buku, Agenda  # Harus sama persis dengan yang di models.py
+from django.shortcuts import render, get_object_or_404
+from .models import Buku, Agenda
 
 def index(request):
-    data_buku = Buku.objects.all()
-    data_agenda = Agenda.objects.all()
-    return render(request, 'index.html', {
-        'katalog': data_buku, 
-        'agenda': data_agenda
+    agenda_list = Agenda.objects.all()
+    return render(request, 'index.html', {'agenda_list': agenda_list})
+
+def search_buku(request):
+    query = request.GET.get('q')
+    hasil_buku = []
+    rekomendasi = None
+    
+    if query:
+        hasil_buku = Buku.objects.filter(judul__icontains=query)
+    
+    if not hasil_buku:
+        rekomendasi = Buku.objects.all().order_by('?')[:3]
+        
+    return render(request, 'search_results.html', {
+        'hasil_buku': hasil_buku,
+        'query': query,
+        'rekomendasi': rekomendasi
     })
+
+def detail_buku(request, id):
+    buku = get_object_or_404(Buku, id=id)
+    return render(request, 'detail_buku.html', {'buku': buku})

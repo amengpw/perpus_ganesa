@@ -15,10 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from website import views # Tambahkan ini
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index, name='home'), # Baris ini untuk halaman depan
+    path('ganesa_admin/', admin.site.urls), # Dashboard admin
+    path('', include('website.urls')),      # Menghubungkan ke aplikasi website
 ]
+
+# Baris ini hanya satu kali saja di paling bawah
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
