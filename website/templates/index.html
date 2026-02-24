@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Ganesa | Pusat Literasi Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#F3F4F6] text-[#1E293B]"> <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid font-bold border-r-2 pr-4 text-2xl border-[#1E3A8A] text-[#1E3A8A]">Ganesa Library</i>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <a href="#beranda" class="hover:text-[#1E3A8A] transition">Beranda</a>
+                <a href="#tentang" class="hover:text-[#1E3A8A] transition">Tentang</a>
+                <a href="#layanan" class="hover:text-[#1E3A8A] transition">Layanan</a>
+                <a href="#katalog" class="hover:text-[#1E3A8A] transition">Katalog</a>
+                <a href="#kontak" class="hover:text-[#1E3A8A] transition">Kontak</a>
+            </div>
+            <a href="/admin" class="bg-[#1E3A8A] text-white px-5 py-2 rounded-md hover:bg-[#111827] transition">Admin</a>
+        </div>
+    </nav>
+
+    <section id="beranda" class="relative bg-[#334155] py-28 text-white text-center overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Perpustakaan Ganesa</h1>
+            <p class="text-[#FACC15] text-2xl font-semibold mb-8">Pusat Literasi & Informasi Modern</p> <p class="max-w-3xl mx-auto text-gray-300 mb-10 text-lg">
+                Nikmati pengalaman membaca dan belajar yang tak terbatas dengan koleksi terlengkap dan fasilitas modern untuk semua kalangan.
+            </p>
+
+            <div class="bg-white p-2 rounded-full max-w-2xl mx-auto flex shadow-xl">
+                <input type="text" placeholder="Cari buku, majalah, atau referensi..." class="flex-grow px-6 py-2 text-gray-700 focus:outline-none rounded-full">
+                <button class="bg-[#1E3A8A] px-8 py-2 rounded-full hover:bg-[#1e40af] transition flex items-center space-x-2">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Cari</span>
+                </button>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#1E3A8A]">Tentang Kami</h2>
+            <div class="w-20 h-1 bg-[#FACC15] mx-auto mb-8"></div>
+            <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+                Perpustakaan Ganesa hadir sebagai wadah ilmu pengetahuan yang menggabungkan koleksi fisik tradisional dengan kemudahan teknologi digital masa kini.
+            </p>
+        </div>
+    </section>
+
+    <section id="katalog" class="py-24 bg-[#F3F4F6]">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-[#1E3A8A]">Katalog Buku</h2>
+                    <p class="text-gray-500 mt-2">Koleksi terbaru minggu ini</p>
+                </div>
+                <a href="#" class="text-[#1E3A8A] font-bold border-b-2 border-[#FACC15]">Lihat Semua</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {% for buku in katalog %}
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
+                    <div class="h-72 overflow-hidden rounded-t-lg bg-gray-200">
+                        {% if buku.cover %}
+                            <img src="{{ buku.cover.url }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        {% endif %}
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-1 truncate">{{ buku.judul }}</h3>
+                        <p class="text-gray-500 text-sm mb-4">{{ buku.penulis }}</p>
+                        <button class="text-xs font-bold uppercase tracking-widest text-[#1E3A8A] hover:text-[#FACC15]">Detail Buku</button>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="col-span-full text-center text-gray-400 py-10">Belum ada koleksi buku.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-24 bg-[#1E3A8A] text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">Hubungi Kami</h2>
+            <p class="mb-8 text-gray-300">Punya pertanyaan seputar keanggotaan atau koleksi?</p>
+            <a href="https://wa.me/yournumber" class="bg-[#FACC15] text-[#1E3A8A] px-10 py-3 rounded-full font-bold hover:bg-yellow-300 transition">
+                <i class="fa-brands fa-whatsapp mr-2"></i> Chat WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-[#0F172A] py-8 text-center text-gray-500 text-sm">
+        &copy; 2026 Ganesa Library. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
