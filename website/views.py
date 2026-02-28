@@ -25,3 +25,6 @@ def search_buku(request):
 def detail_buku(request, id):
     buku = get_object_or_404(Buku, id=id)
     return render(request, 'detail_buku.html', {'buku': buku})
+
+def profil(request):
+    return render(request, 'profil.html')

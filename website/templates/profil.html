@@ -1,0 +1,249 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Perpustakaan Ganesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+    </style>
+</head>
+<body class="bg-white pt-[72px]">
+
+    <nav class="bg-[#F8FAFC] shadow-sm fixed w-full z-50 top-0 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded text-xs text-gray-500 overflow-hidden">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+                    <span class="text-[10px] font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="/" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">BERANDA</a>
+                
+                <div class="relative group">
+                    <button class="text-sm font-bold text-[#B5893E] border-b-2 border-[#B5893E] pb-1 flex items-center">
+                        TENTANG <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="py-2">
+                            <a href="/profil/" class="block px-6 py-3 text-sm font-bold text-[#B5893E] bg-amber-50">Profil Perpustakaan</a>
+                            <a href="#" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:text-[#B5893E]">Denah & Lokasi</a>
+                            <a href="#" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:text-[#B5893E]">Pimpinan & Staff</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/#layanan" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">LAYANAN</a>
+                <a href="/#agenda" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">AGENDA</a>
+                <a href="/#kontak" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">KONTAK</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative w-full h-[300px] md:h-[450px] flex items-center">
+        <div class="absolute inset-0 w-full h-full overflow-hidden bg-gray-900">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop" 
+                 class="w-full h-full object-cover opacity-50 mix-blend-overlay" alt="Background Perpustakaan">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div data-aos="fade-right" class="bg-[#B5893E] inline-block px-8 py-5 md:px-12 md:py-6 shadow-xl border-l-8 border-[#1D3557]">
+                <h1 class="text-3xl md:text-5xl font-black text-white tracking-wide">Profil Perpustakaan</h1>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="300" class="text-white mt-6 ml-2 text-lg md:text-xl font-medium tracking-wide max-w-2xl drop-shadow-md">
+                LSM Ganesa – Pusat Kegiatan Komunitas dan Literasi Masyarakat Indonesia
+            </p>
+        </div>
+    </section>
+
+    <section class="relative py-24 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                
+                <div data-aos="fade-right" class="w-full md:w-5/12 relative">
+                    <h3 class="text-[#1D3557] text-2xl font-black mb-6">Video Profil Ganesa</h3>
+                    <div class="relative group cursor-pointer overflow-hidden rounded-2xl shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=800&auto=format&fit=crop" 
+                             class="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500" alt="Thumbnail Video">
+                        <div class="absolute inset-0 bg-[#1D3557]/20 flex items-center justify-center group-hover:bg-[#1D3557]/40 transition-colors">
+                            <div class="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#B5893E] transition-colors duration-300">
+                                <i class="fa-solid fa-play text-[#1D3557] group-hover:text-white text-2xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" class="w-full md:w-7/12">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-1 bg-[#B5893E]"></div>
+                        <h2 class="text-4xl font-black text-[#1D3557]">Sejarah Berdiri</h2>
+                    </div>
+                    
+                    <div class="space-y-5 text-gray-600 text-base md:text-lg leading-relaxed text-justify">
+                        <p>
+                            Berdirinya <strong class="text-[#1D3557]">Ganesa</strong> pada awalnya karena adanya industri batik. Lebih dari itu, batik adalah cipta karya seni bangsa Indonesia yang senantiasa selalu dilestarikan yang mana telah menjadi warisan dunia.
+                        </p>
+                        <p>
+                            Perpustakaan Ganesa bermula dari sebuah inisiatif yang didorong oleh kepedulian terhadap literasi masyarakat. Kami menyadari bahwa pendidikan dan akses informasi adalah kunci untuk mencerdaskan kehidupan bangsa. 
+                        </p>
+                        <p>
+                            Dengan semangat kebersamaan, bangunan ini didirikan sebagai ruang publik gratis. Kami ingin menciptakan tempat di mana setiap kalangan bisa berkumpul, membaca, dan membuka jendela dunia tanpa terhalang biaya. Inilah langkah awal kami membangun peradaban melalui buku.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-y border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <div data-aos="fade-up" class="text-center mb-20">
+                <span class="text-[#B5893E] font-bold tracking-[0.2em] uppercase text-sm">Tujuan Utama</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#1D3557] mt-2 mb-8">Visi LSM Ganesa</h2>
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-medium italic">
+                    "Mewujudkan bangsa Indonesia yang mampu mensejahterakan diri melalui adanya kesempatan membaca dan belajar secara mandiri."
+                </p>
+            </div>
+
+            <div data-aos="fade-up" class="text-center">
+                <span class="text-[#B5893E] font-bold tracking-[0.2em] uppercase text-sm">Langkah Nyata</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#1D3557] mt-2 mb-10">Misi LSM Ganesa</h2>
+                
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 text-left">
+                    <ol class="list-decimal text-gray-700 text-lg space-y-6 pl-5 marker:text-[#B5893E] marker:font-bold">
+                        <li class="pl-2 leading-relaxed">Mendirikan Perpustakaan sebagai perpustakaan publik gratis dan sebagai pusat kegiatan komunitas.</li>
+                        <li class="pl-2 leading-relaxed">Menjadikan belajar dan membaca itu menyenangkan dengan memberikan akses gratis buku-buku dalam Bahasa Indonesia dan Bahasa Inggris dengan suasana yang nyaman.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div data-aos="fade-up" class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-[#1D3557] mb-6">Filosofi Logo</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed text-lg">
+                    Bentuk keseluruhan dari Logo LSM Ganesa adalah <strong>Gunungan</strong>. Dalam budaya pewayangan, adanya gunungan berarti dimulainya suatu adegan. Dimaknai sebagai lambang kehidupan.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-start max-w-7xl mx-auto">
+                <div data-aos="zoom-in" class="lg:col-span-4 flex justify-center sticky top-28">
+                    <div class="w-96 h-96 bg-white rounded-full flex items-center justify-center border-4 border-[#1D3557] shadow-xl p-6 hover:scale-105 transition-transform duration-500 overflow-hidden">
+                        <img src="{% static 'images/maknalogo.png' %}" alt="Makna Logo Ganesa" class="w-full h-full object-contain">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+                    
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">1. Bunga Teratai</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Bunga teratai dapat hidup dalam berbagai kondisi air dan tetap berbunga cantik. Ganesa diharapkan dapat hidup dalam semua lapisan masyarakat yang latar belakangnya berbeda-beda. Ganesa dapat diterima oleh semua kalangan dan terus berkembang (subur). Seperti keindahan bunga teratai Ganesa ini akan selalu dikenang sepanjang masa.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">2. Buku</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Dengan buku masyarakat akan menjadi cerdas. Dengan adanya Buku masyrakat diharapkan menjadi antusias untuk membaca. Dengan membaca bisa melihat dunia karena buku adalah jendela dunia.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">3. Lidah Api</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Semangat kehidupan. Jadi dengan semangat itu, kita tiada hari tanpa membaca.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="400" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">4. Gajah</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Dalam kebudayaan leluhur Bangsa Indonesia, kepala gajah adalah symbol dari Dewa Ganesa yakni Dewa Ilmu pengetahuan dan kecerdasan. Dengan menguasai ilmu pengetahuan, kita bisa melestarikan dunia.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="500" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">5. Motif Kawung</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Ini berkaitan dengan nama corak (motif) batik. Dalam budaya batik, corak kawung sering ditemukan. Berdirinya Ganesa pada awalnya karena adanya industri batik. Lebih dari itu batik adalah cipta karya seni bangsa Indonesia yang senantiasa selalu dilestarikan yang mana telah menjadi warisan dunia.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="600" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">6. Ukel</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Pada tumbuhan tertentu (seperti golongan paku/pakis) terdapat bagian Tanaman (daun muda) yang masih menggulung ke dalam. Diharapkan walaupun sudah menguasai ilmu tetapi tetap rendah hati, tidak menyombongkan diri.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="700" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">7. Pena</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Alat untuk menulis. Dengan rajin membaca, kita pasti bisa menulis. Dengan menulis kita bisa menembus dunia membagikan informasi.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="800" class="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#B5893E]">
+                        <h4 class="font-bold text-[#1D3557] text-lg">8. Bintang</h4>
+                        <p class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">Walaupun semua kita sudah miliki. Janganlah kita melupakan bahwa itu semua karena karunia Tuhan tanpa campur tangan Tuhan kita tidak bisa apa-apa (invisible hand).</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#1D3557] text-white overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div data-aos="fade-up" class="text-center mb-16">
+                <span class="text-[#B5893E] font-bold tracking-[0.2em] uppercase text-sm">Rencana Aksi</span>
+                <h2 class="text-3xl md:text-4xl font-black mt-2">Program Kerja</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div data-aos="fade-right" class="bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold text-[#B5893E] mb-4 flex items-center">
+                        <i class="fa-solid fa-road mr-4"></i> Jangka Panjang
+                    </h3>
+                    <p class="text-sm text-gray-300 mb-6 pb-6 border-b border-white/10 italic">Pembinaan kelangsungan dan pengembangan selaras dengan tata penghidupan masyarakat.</p>
+                    <ul class="space-y-4 text-sm text-gray-200">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Mengembangkan rumah belajar hingga ke pelosok masyarakat.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Sosialisasi pemahaman pentingnya volunteer di lembaga sosial.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Turut mengentaskan "kurangnya keinginan membaca" di masyarakat.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Memberikan bantuan buku/peraga pendidikan yang membutuhkan.</li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-left" class="bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                        <i class="fa-solid fa-bolt text-[#B5893E] mr-4"></i> Jangka Pendek
+                    </h3>
+                    <p class="text-sm text-gray-300 mb-6 pb-6 border-b border-white/10 italic">Dilaksanakan menurut masa kepengurusan sesuai Anggaran Dasar LSM Ganesa.</p>
+                    <ul class="space-y-4 text-sm text-gray-200">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Inventarisasi, katalogisasi, dan digitalisasi naskah nusantara.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Membuat Rumah Belajar bervisi nirlaba untuk masyarakat luas.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Mengadakan kerjasama dengan badan pemerintah maupun swasta.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-[#B5893E] mt-1 mr-3"></i> Menyelenggarakan diskusi, seminar, dan edukasi kebudayaan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Mengaktifkan animasi saat di-scroll
+        AOS.init({
+            duration: 800,     // Durasi animasi (800 milidetik)
+            easing: 'ease-out', // Efek melambat di akhir
+            once: true,         // Animasi hanya jalan 1x saat di-scroll ke bawah (biar elegan)
+            offset: 100         // Mulai animasi saat elemen berjarak 100px dari layar bawah
+        });
+    </script>
+</body>
+</html>
