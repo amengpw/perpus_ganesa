@@ -28,3 +28,6 @@ def detail_buku(request, id):
 
 def profil(request):
     return render(request, 'profil.html')
+
+def staff(request):
+    return render(request, 'staff.html')

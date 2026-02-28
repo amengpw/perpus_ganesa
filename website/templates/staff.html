@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pimpinan & Staff - Perpustakaan Ganesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-white pt-[72px]">
+
+    <nav class="bg-[#F8FAFC] shadow-sm fixed w-full z-50 top-0 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded text-xs text-gray-500 overflow-hidden">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+                    <span class="text-[10px] font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="/" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E]">BERANDA</a>
+                <div class="relative group">
+                    <button class="text-sm font-bold text-[#B5893E] border-b-2 border-[#B5893E] pb-1 flex items-center">
+                        TENTANG <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="py-2">
+                            <a href="/profil/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50">Profil Perpustakaan</a>
+                            <a href="/staff/" class="block px-6 py-3 text-sm font-bold text-[#B5893E] bg-amber-50">Pimpinan & Staff</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E]">LAYANAN</a>
+                <a href="#" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E]">KONTAK</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative w-full h-[300px] flex items-center">
+        <div class="absolute inset-0 bg-[#1D3557]">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000" 
+                 class="w-full h-full object-cover opacity-30" alt="Team Background">
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div data-aos="fade-down" class="inline-block bg-[#B5893E] px-8 py-4 mb-4">
+                <h1 class="text-3xl md:text-5xl font-black text-white">Pimpinan dan Staff</h1>
+            </div>
+            <p data-aos="fade-up" class="text-white text-lg font-medium">Struktur Organisasi dan Pengelola LSM Ganesa</p>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6 max-w-6xl">
+            
+            <div class="flex justify-center mb-20" data-aos="zoom-in">
+                <div class="text-center group">
+                    <div class="w-48 h-60 bg-gray-100 rounded-2xl mb-4 mx-auto overflow-hidden border-4 border-white shadow-lg group-hover:border-[#B5893E] transition-all">
+                        <img src="https://via.placeholder.com/300x400?text=Foto" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1D3557]">H. Muchammad Nurudin</h3>
+                    <p class="text-[#B5893E] font-bold text-sm tracking-widest uppercase mt-1">Dewan Pembina</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 mb-24">
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-44 h-56 bg-gray-100 rounded-2xl mb-4 mx-auto overflow-hidden border-2 border-gray-100 shadow-md group-hover:shadow-xl transition-all">
+                        <img src="https://via.placeholder.com/300x400?text=Foto" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-[#1D3557]">Muhammad Andri Setyawan, S.H</h3>
+                    <p class="text-gray-500 text-sm font-semibold">Pengelola LSM Ganesa</p>
+                </div>
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-44 h-56 bg-gray-100 rounded-2xl mb-4 mx-auto overflow-hidden border-2 border-gray-100 shadow-md group-hover:shadow-xl transition-all">
+                        <img src="https://via.placeholder.com/300x400?text=Foto" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-[#1D3557]">Ambar Puspa Galih M.S.E</h3>
+                    <p class="text-gray-500 text-sm font-semibold">Sekretaris LSM Ganesa</p>
+                </div>
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-44 h-56 bg-gray-100 rounded-2xl mb-4 mx-auto overflow-hidden border-2 border-gray-100 shadow-md group-hover:shadow-xl transition-all">
+                        <img src="https://via.placeholder.com/300x400?text=Foto" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-[#1D3557]">Dyah Ratna Heryati</h3>
+                    <p class="text-gray-500 text-sm font-semibold">Bendahara LSM Ganesa</p>
+                </div>
+            </div>
+
+            <hr class="border-gray-100 mb-20">
+
+            <div class="mb-12">
+                <h2 data-aos="fade-right" class="text-2xl font-black text-[#1D3557] mb-10 flex items-center">
+                    <span class="w-10 h-1 bg-[#B5893E] mr-4"></span> Pegawai Tetap
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-3xl border border-gray-100 group hover:bg-[#1D3557] transition-all duration-300" data-aos="fade-up">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-[#B5893E]">
+                                <img src="https://via.placeholder.com/100" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1D3557] group-hover:text-white">Candra Dewi Agustining Tyas, A.Md</h4>
+                                <p class="text-xs text-[#B5893E] font-bold uppercase group-hover:text-amber-200">Ketua Tim / Pengadaan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-3xl border border-gray-100 group hover:bg-[#1D3557] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-[#B5893E]">
+                                <img src="https://via.placeholder.com/100" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1D3557] group-hover:text-white">Risma Rahmawati</h4>
+                                <p class="text-xs text-[#B5893E] font-bold uppercase group-hover:text-amber-200">Bagian Sirkulasi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-3xl border border-gray-100 group hover:bg-[#1D3557] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden bg-white border-2 border-[#B5893E]">
+                                <img src="https://via.placeholder.com/100" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1D3557] group-hover:text-white">Sulis Dimas Saputro</h4>
+                                <p class="text-xs text-[#B5893E] font-bold uppercase group-hover:text-amber-200">Pegawai Umum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#1D3557] py-12 text-center text-white/60 text-sm">
+        <p>© 2026 Perpustakaan Ganesa. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>
