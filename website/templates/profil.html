@@ -16,40 +16,68 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
     </style>
 </head>
-<body class="bg-white pt-[72px]">
-
-    <nav class="bg-[#F8FAFC] shadow-sm fixed w-full z-50 top-0 border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded text-xs text-gray-500 overflow-hidden">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-2xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
-                    <span class="text-[10px] font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
-                </div>
-            </a>
-
-            <div class="hidden md:flex items-center space-x-10">
-                <a href="/" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">BERANDA</a>
+<body class="bg-white scroll-smooth"> 
+    
+    <nav class="bg-[#F8FAFC] shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
                 
-                <div class="relative group">
-                    <button class="text-sm font-bold text-[#B5893E] border-b-2 border-[#B5893E] pb-1 flex items-center">
-                        TENTANG <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
-                    </button>
-                    <div class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 overflow-hidden">
-                        <div class="py-2">
-                            <a href="/profil/" class="block px-6 py-3 text-sm font-bold text-[#B5893E] bg-amber-50">Profil Perpustakaan</a>
-                            <a href="#" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:text-[#B5893E]">Denah & Lokasi</a>
-                            <a href="#" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:text-[#B5893E]">Pimpinan & Staff</a>
+                <a href="/" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden group-hover:bg-[#B5893E] group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div class="flex flex-col justify-center mt-1">
+                        <span class="text-3xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+                        <span class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+                    </div>
+                </a>
+
+                <button id="mobile-menu-button" class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl transition">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]">
+                    <a href="/" class="hover:text-[#B5893E] transition flex items-center hover:-translate-y-0.5 duration-200">BERANDA</a>
+                    
+                    <div class="relative group py-2">
+                        <a href="/#tentang" class="hover:text-[#B5893E] flex items-center transition cursor-pointer">
+                            TENTANG <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1 group-hover:rotate-180 transition-transform duration-300"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100">
+                            <div class="py-2">
+                                <a href="/profil/" class="block px-6 py-3 text-sm font-semibold bg-amber-50 text-[#B5893E] border-l-4 border-[#B5893E] transition-all">Profil Perpustakaan</a>
+                                <a href="/#denah" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all">Denah & Lokasi</a>
+                                <a href="/staff/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all">Pimpinan & Staff</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <a href="/#layanan" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">LAYANAN</a>
-                <a href="/#agenda" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">AGENDA</a>
-                <a href="/#kontak" class="text-sm font-bold text-[#1D3557] hover:text-[#B5893E] transition-colors">KONTAK</a>
+                    <div class="relative group py-2">
+                        <a href="/#layanan" class="hover:text-[#B5893E] flex items-center transition cursor-pointer">
+                            LAYANAN <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1 group-hover:rotate-180 transition-transform duration-300"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100">
+                            <div class="py-2">
+                                <a href="/#peminjaman" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all">Peminjaman</a>
+                                <a href="/#ruang-baca" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all">Ruang Baca</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/#agenda" class="hover:text-[#B5893E] transition flex items-center hover:-translate-y-0.5 duration-200">AGENDA</a>
+                    <a href="/#kontak" class="hover:text-[#B5893E] transition flex items-center hover:-translate-y-0.5 duration-200">KONTAK</a>
+                </div>
             </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4 px-6">
+            <a href="/" class="hover:text-[#B5893E]">BERANDA</a>
+            <a href="/#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
+            <a href="/profil/" class="text-[#B5893E] pl-4 border-l-2 border-[#B5893E]">Profil Perpustakaan</a>
+            <a href="/staff/" class="hover:text-[#B5893E] pl-4">Pimpinan & Staff</a>
+            <a href="/#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
+            <a href="/#agenda" class="hover:text-[#B5893E]">AGENDA</a>
+            <a href="/#kontak" class="hover:text-[#B5893E]">KONTAK</a>
         </div>
     </nav>
 
