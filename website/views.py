@@ -31,3 +31,9 @@ def profil(request):
 
 def staff(request):
     return render(request, 'staff.html')
+
+def peminjaman(request):
+    return render(request, 'peminjaman.html')
+
+def tutorial_member(request):
+    return render(request, 'tutorial_member.html')

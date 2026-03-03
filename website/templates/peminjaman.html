@@ -1,0 +1,344 @@
+{% load static %}
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peraturan Peminjaman - Perpustakaan Ganesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <nav class="bg-[#F8FAFC] shadow-md fixed top-0 left-0 right-0 z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/#beranda" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden"
+            >
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="flex flex-col justify-center mt-1">
+              <span
+                class="text-3xl font-black text-[#1D3557] leading-none tracking-tight"
+                >GANESA</span
+              >
+              <span
+                class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1"
+                >PERPUSTAKAAN</span
+              >
+            </div>
+          </a>
+
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div
+            class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]"
+          >
+            <a
+              href="/#beranda"
+              class="hover:text-[#B5893E] transition flex items-center"
+              >BERANDA</a
+            >
+
+            <div class="relative group py-2">
+              <a
+                href="/#tentang"
+                class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
+              >
+                TENTANG
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-2">
+                  <a
+                    href="/profil/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Profil Perpustakaan</a
+                  >
+                  <a
+                    href="/#denah"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Denah & Lokasi</a
+                  >
+                  <a
+                    href="/staff/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Pimpinan & Staff</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a
+                href="/#layanan"
+                class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
+                >LAYANAN
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i
+              ></a>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-2">
+                  <a
+                    href="/#layanan"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Fasilitas Tersedia</a
+                  >
+                  <a
+                    href="{% url 'peminjaman' %}"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Peminjaman</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a
+                href="#"
+                class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase"
+                >PANDUAN
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i
+              ></a>
+              <div
+                class="absolute top-full left-0 mt-2 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <div class="py-2">
+                  <a
+                    href="/tutorial-member/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Tutorial Membuat Kartu Member</a
+                  >
+                  <a
+                    href="/tata-tertib/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Tata Tertib</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="/#agenda"
+              class="hover:text-[#B5893E] transition flex items-center"
+              >AGENDA</a
+            >
+            <a
+              href="/#kontak"
+              class="hover:text-[#B5893E] transition flex items-center"
+              >KONTAK</a
+            >
+          </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4"
+        >
+          <a href="/#beranda" class="hover:text-[#B5893E]">BERANDA</a>
+          <a href="/#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
+          <a href="/#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
+          <a href="/#agenda" class="hover:text-[#B5893E]">AGENDA</a>
+          <a href="/#kontak" class="hover:text-[#B5893E]">KONTAK</a>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+    <section
+      class="relative w-full h-[300px] md:h-[450px] flex items-center mt-[72px]"
+    >
+      <div class="absolute inset-0 w-full h-full overflow-hidden bg-gray-900">
+        <img
+          src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2000&auto=format&fit=crop"
+          class="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          alt="Background Peminjaman"
+        />
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div
+          data-aos="fade-right"
+          class="bg-[#B5893E] inline-block px-8 py-5 md:px-12 md:py-6 shadow-xl border-l-8 border-[#1D3557]"
+        >
+          <h1 class="text-3xl md:text-5xl font-black text-white tracking-wide">
+            Layanan Peminjaman
+          </h1>
+        </div>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="300"
+          class="text-white mt-6 ml-2 text-lg md:text-xl font-medium tracking-wide max-w-2xl drop-shadow-md"
+        >
+          Ketentuan dan Tata Tertib Peminjaman Koleksi Perpustakaan Ganesa
+        </p>
+      </div>
+    </section>
+
+    <section class="relative py-24 bg-white">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="max-w-4xl mx-auto">
+          <div
+            data-aos="fade-up"
+            class="flex items-center gap-4 mb-12 justify-center text-center"
+          >
+            <div class="w-12 h-1 bg-[#B5893E]"></div>
+            <h2 class="text-3xl md:text-4xl font-black text-[#1D3557]">
+              Peraturan Peminjaman
+            </h2>
+            <div class="w-12 h-1 bg-[#B5893E]"></div>
+          </div>
+
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="bg-gray-50 p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100"
+          >
+            <div class="space-y-10">
+              <div class="flex gap-6 items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg"
+                >
+                  1
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-[#1D3557] mb-2">
+                    Kartu Anggota
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    Wajib membawa <b>Kartu Anggota</b>. Peminjaman buku tidak
+                    diperbolehkan menggunakan kartu milik orang lain.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-6 items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg"
+                >
+                  2
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-[#1D3557] mb-2">
+                    Durasi Peminjaman
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    Lama waktu peminjaman koleksi adalah
+                    <b>10 hari</b> kalender.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-6 items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg"
+                >
+                  3
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-[#1D3557] mb-2">
+                    Kuota Buku
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    Peminjaman pertama kali maksimal <b>2 buku</b>. Untuk
+                    kedatangan selanjutnya, maksimal peminjaman adalah
+                    <b>4 buku</b>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-6 items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg"
+                >
+                  4
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-[#1D3557] mb-2">
+                    Perpanjangan
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    Masa pinjam dapat diperpanjang sebanyak
+                    <b>1 kali</b> melalui konfirmasi via <b>WhatsApp</b> resmi
+                    perpustakaan.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-6 items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-[#B5893E] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg"
+                >
+                  <i class="fa-solid fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-[#1D3557] mb-2">
+                    Tanggung Jawab
+                  </h4>
+                  <p
+                    class="text-gray-600 leading-relaxed text-lg italic font-medium"
+                  >
+                    Buku yang hilang atau rusak wajib diganti oleh peminjam.
+                    Harap tidak meminjamkan buku yang sedang Anda pinjam kepada
+                    orang lain.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/#layanan"
+              class="inline-flex items-center gap-2 text-[#1D3557] font-bold hover:text-[#B5893E] transition-colors"
+            >
+              <i class="fa-solid fa-arrow-left"></i> Kembali ke Layanan Lain
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-[#0F172A] py-12 text-center text-gray-500 text-[10px] tracking-[0.3em] uppercase"
+    >
+      &copy; 2026 Ganesa Library Systems. "Karena Membaca Itu Menyenangkan"
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+    </script>
+  </body>
+</html>
