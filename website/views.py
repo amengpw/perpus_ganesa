@@ -37,3 +37,6 @@ def peminjaman(request):
 
 def tutorial_member(request):
     return render(request, 'tutorial_member.html')
+
+def tata_tertib(request):
+    return render(request, 'tata_tertib.html')

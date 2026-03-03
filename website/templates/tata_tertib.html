@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Tertib - Perpustakaan Ganesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <nav class="bg-[#F8FAFC] shadow-md fixed top-0 left-0 right-0 z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/#beranda" class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="flex flex-col justify-center mt-1">
+              <span class="text-3xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+              <span class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+            </div>
+          </a>
+
+          <div class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]">
+            <a href="/#beranda" class="hover:text-[#B5893E] transition flex items-center uppercase">Beranda</a>
+            
+            <div class="relative group py-2">
+              <a href="/#tentang" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">Tentang <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i></a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="py-2">
+                  <a href="/profil/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Profil Perpustakaan</a>
+                  <a href="/#denah" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Denah & Lokasi</a>
+                  <a href="/staff/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Pimpinan & Staff</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a href="/#layanan" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">Layanan <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i></a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="py-2">
+                  <a href="/#layanan" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Fasilitas Tersedia</a>
+                  <a href="{% url 'peminjaman' %}" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Peminjaman</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2 text-[#B5893E]">
+              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">Panduan <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i></a>
+              <div class="absolute top-full left-0 mt-2 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="py-2">
+                  <a href="{% url 'tutorial_member' %}" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tutorial Membuat Kartu Member</a>
+                  <a href="/tata-tertib/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tata Tertib</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#agenda" class="hover:text-[#B5893E] transition flex items-center uppercase">Agenda</a>
+            <a href="/#kontak" class="hover:text-[#B5893E] transition flex items-center uppercase">Kontak</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="relative w-full h-[300px] md:h-[400px] flex items-center mt-[72px]">
+        <div class="absolute inset-0 w-full h-full overflow-hidden bg-[#1D3557]">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2000" class="w-full h-full object-cover opacity-30 mix-blend-overlay" alt="Background">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div data-aos="fade-right" class="bg-[#B5893E] inline-block px-8 py-5 shadow-xl border-l-8 border-[#1D3557]">
+                <h1 class="text-3xl md:text-5xl font-black text-white tracking-wide uppercase">Tata Tertib</h1>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="300" class="text-white mt-6 text-lg font-medium max-w-2xl drop-shadow-md">
+                Peraturan Perpustakaan Ganesa demi kenyamanan bersama.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-32">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="space-y-6">
+                    <div data-aos="fade-up" class="flex items-center gap-6 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 flex-shrink-0 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                        <p class="text-gray-700 text-lg font-semibold leading-relaxed">Masuk Perpustakaan alas kaki dilepas.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="100" class="flex items-center gap-6 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 flex-shrink-0 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                        <p class="text-gray-700 text-lg font-semibold leading-relaxed">Dilarang membawa tas, makanan dan minuman ke dalam ruang baca Silahkan dititipkan di loker.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="200" class="flex items-center gap-6 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 flex-shrink-0 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                        <p class="text-gray-700 text-lg font-semibold leading-relaxed">Anak-anak yang masuk ruang dewasa harus dalam pengawasan orang dewasa dan menjaga ketenangan.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="flex items-center gap-6 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 flex-shrink-0 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl">4</div>
+                        <p class="text-gray-700 text-lg font-semibold leading-relaxed">Jangan duduk/membaca menyender di rak (mengganggu orang lain yg akan mengambil buku)</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="400" class="flex items-center gap-6 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 flex-shrink-0 bg-[#1D3557] text-white rounded-full flex items-center justify-center font-bold text-xl">5</div>
+                        <p class="text-gray-700 text-lg font-semibold leading-relaxed">Penggunakan bantal maksimal 2 per orang</p>
+                    </div>
+                </div>
+
+                <div data-aos="zoom-in" class="mt-16 p-8 bg-amber-50 rounded-3xl border-2 border-dashed border-[#B5893E] text-center">
+                    <i class="fa-solid fa-hand-holding-heart text-4xl text-[#B5893E] mb-4"></i>
+                    <p class="text-[#1D3557] font-bold text-xl italic">
+                        "Terima kasih telah menaati peraturan demi kenyamanan pengunjung lainnya."
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0F172A] py-12 text-center text-gray-500 text-[10px] tracking-[0.3em] uppercase">
+      &copy; 2026 Ganesa Library Systems.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
