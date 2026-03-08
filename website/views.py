@@ -1,9 +1,22 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Buku, Agenda
+from .models import Buku, Agenda, Dokumentasi
 
 def index(request):
-    agenda_list = Agenda.objects.all()
-    return render(request, 'index.html', {'agenda_list': agenda_list})
+    # Ambil 5 buku fiksi & 5 non-fiksi untuk section Top Rekomendasi
+    buku_fiksi = Buku.objects.filter(kategori='fiksi')[:5]
+    buku_nonfiksi = Buku.objects.filter(kategori='nonfiksi')[:5]
+    
+    # Ambil semua data agenda & dokumentasi
+    list_agenda = Agenda.objects.all().order_by('-tanggal') # yang terbaru di atas
+    galeri = Dokumentasi.objects.all()
+
+    context = {
+        'buku_fiksi': buku_fiksi,
+        'buku_nonfiksi': buku_nonfiksi,
+        'list_agenda': list_agenda,
+        'galeri': galeri,
+    }
+    return render(request, 'index.html', context)
 
 def search_buku(request):
     query = request.GET.get('q')

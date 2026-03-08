@@ -1,0 +1,17 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# Folder Virtual Environment
+env/
+venv/
+
+# Folder Cache Python
+__pycache__/
+*.py[cod]
+
+# Database
+*.sqlite3
+
+# Folder Media/Upload
+media/
+
+# Folder VS Code
+.vscode/

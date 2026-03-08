@@ -17,56 +17,148 @@
 </head>
 <body class="bg-white">
 
-    <nav class="bg-[#F8FAFC] shadow-md fixed top-0 left-0 right-0 z-50">
+     <nav class="bg-[#F8FAFC] shadow-md sticky top-0 z-50">
       <div class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-          <a href="/#beranda" class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden">
+          <a href="#beranda" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden"
+            >
               <i class="fa-solid fa-book-open"></i>
             </div>
             <div class="flex flex-col justify-center mt-1">
-              <span class="text-3xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
-              <span class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+              <span
+                class="text-3xl font-black text-[#1D3557] leading-none tracking-tight"
+                >GANESA</span
+              >
+              <span
+                class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1"
+                >PERPUSTAKAAN</span
+              >
             </div>
           </a>
 
-          <div class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]">
-            <a href="/#beranda" class="hover:text-[#B5893E] transition flex items-center uppercase">Beranda</a>
-            
-            <div class="relative group py-2">
-              <a href="/#tentang" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">Tentang <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i></a>
-              <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                <div class="py-2">
-                  <a href="/profil/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Profil Perpustakaan</a>
-                  <a href="/#denah" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Denah & Lokasi</a>
-                  <a href="/staff/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Pimpinan & Staff</a>
-                </div>
-              </div>
-            </div>
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div
+            class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]"
+          >
+            <a
+              href="#beranda"
+              class="hover:text-[#B5893E] transition flex items-center"
+              >BERANDA</a
+            >
 
             <div class="relative group py-2">
-              <a href="/#layanan" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">Layanan <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i></a>
-              <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              <a
+                href="#tentang"
+                class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
+              >
+                TENTANG
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
                 <div class="py-2">
-                  <a href="/#layanan" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Fasilitas Tersedia</a>
-                  <a href="{% url 'peminjaman' %}" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Peminjaman</a>
+                  <a
+                    href="/profil/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Profil Perpustakaan</a
+                  >
+                  <a
+                    href="/denah/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Denah & Lokasi</a
+                  >
+                  <a
+                    href="/staff/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Pimpinan & Staff</a
+                  >
                 </div>
               </div>
             </div>
 
-            <div class="relative group py-2 text-[#B5893E]">
-              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">Panduan <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i></a>
-              <div class="absolute top-full left-0 mt-2 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <div class="relative dropdown-container">
+              <button
+                class="dropdown-btn w-full flex justify-between items-center hover:text-[#B5893E] uppercase"
+              >
+                Layanan <i class="fa-solid fa-chevron-down text-xs ml-1"></i>
+              </button>
+              <div
+                class="dropdown-content hidden md:absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-xl p-2 space-y-1"
+              >
+                <a
+                  href="{% url 'peminjaman' %}"
+                  class="block px-4 py-2 text-sm hover:bg-amber-50 rounded-lg"
+                  >Prosedur Pinjam</a
+                >
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a
+                href="#"
+                class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase"
+              >
+                PANDUAN
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div
+                class="absolute top-full left-0 mt-2 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
                 <div class="py-2">
-                  <a href="{% url 'tutorial_member' %}" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tutorial Membuat Kartu Member</a>
-                  <a href="/tata-tertib/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tata Tertib</a>
+                  <a
+                    href="/tutorial-member/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Tutorial Membuat Kartu Member</a
+                  >
+                  <a
+                    href="/tata-tertib/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                    >Tata Tertib</a
+                  >
                 </div>
               </div>
             </div>
 
-            <a href="/#agenda" class="hover:text-[#B5893E] transition flex items-center uppercase">Agenda</a>
-            <a href="/#kontak" class="hover:text-[#B5893E] transition flex items-center uppercase">Kontak</a>
+            <a href="#rekomendasi" class="hover:text-[#B5893E] uppercase"
+              >Top Buku</a
+            >
+
+            <a
+              href="#agenda"
+              class="hover:text-[#B5893E] transition flex items-center"
+              >AGENDA</a
+            >
+
+            <a href="#dokumentasi" class="hover:text-[#B5893E] uppercase"
+              >Dokumentasi</a
+            >
+
+            <a
+              href="#kontak"
+              class="hover:text-[#B5893E] transition flex items-center"
+              >KONTAK</a
+            >
           </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4"
+        >
+          <a href="#beranda" class="hover:text-[#B5893E]">BERANDA</a>
+          <a href="#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
+          <a href="#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
+          <a href="#agenda" class="hover:text-[#B5893E]">AGENDA</a>
+          <a href="#kontak" class="hover:text-[#B5893E]">KONTAK</a>
         </div>
       </div>
     </nav>

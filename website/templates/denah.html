@@ -128,29 +128,20 @@
               </div>
             </div>
 
-            <div class="relative group py-2">
-              <a
-                href="#layanan"
-                class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
+            <div class="relative dropdown-container">
+              <button
+                class="dropdown-btn w-full flex justify-between items-center hover:text-[#B5893E] uppercase"
               >
-                LAYANAN
-                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
-              </a>
+                Layanan <i class="fa-solid fa-chevron-down text-xs ml-1"></i>
+              </button>
               <div
-                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                class="dropdown-content hidden md:absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-xl p-2 space-y-1"
               >
-                <div class="py-2">
-                  <a
-                    href="/fasilitas/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Fasilitas Tersedia</a
-                  >
-                  <a
-                    href="/peminjaman/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Peraturan Peminjaman</a
-                  >
-                </div>
+                <a
+                  href="{% url 'peminjaman' %}"
+                  class="block px-4 py-2 text-sm hover:bg-amber-50 rounded-lg"
+                  >Prosedur Pinjam</a
+                >
               </div>
             </div>
 
@@ -180,11 +171,20 @@
               </div>
             </div>
 
+            <a href="#rekomendasi" class="hover:text-[#B5893E] uppercase"
+              >Top Buku</a
+            >
+
             <a
               href="#agenda"
               class="hover:text-[#B5893E] transition flex items-center"
               >AGENDA</a
             >
+
+            <a href="#dokumentasi" class="hover:text-[#B5893E] uppercase"
+              >Dokumentasi</a
+            >
+
             <a
               href="#kontak"
               class="hover:text-[#B5893E] transition flex items-center"

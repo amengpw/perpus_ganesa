@@ -23,13 +23,12 @@
     </style>
   </head>
   <body class="bg-white scroll-smooth">
-    
     <nav class="bg-[#F8FAFC] shadow-md sticky top-0 z-50">
       <div class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-          <a href="/" class="flex items-center space-x-3 group">
+          <a href="#beranda" class="flex items-center space-x-3">
             <div
-              class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden group-hover:bg-[#B5893E] group-hover:text-white transition-all duration-300"
+              class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden"
             >
               <i class="fa-solid fa-book-open"></i>
             </div>
@@ -47,7 +46,7 @@
 
           <button
             id="mobile-menu-button"
-            class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl transition"
+            class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl"
           >
             <i class="fa-solid fa-bars"></i>
           </button>
@@ -56,69 +55,56 @@
             class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]"
           >
             <a
-              href="/"
-              class="hover:text-[#B5893E] transition flex items-center hover:-translate-y-0.5 duration-200"
+              href="#beranda"
+              class="hover:text-[#B5893E] transition flex items-center"
               >BERANDA</a
             >
 
             <div class="relative group py-2">
               <a
-                href="/#tentang"
+                href="#tentang"
                 class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
               >
                 TENTANG
-                <i
-                  class="fa-solid fa-chevron-down ml-2 text-xs mt-1 group-hover:rotate-180 transition-transform duration-300"
-                ></i>
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
               </a>
               <div
-                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100"
+                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
               >
                 <div class="py-2">
                   <a
                     href="/profil/"
-                    class="block px-6 py-3 text-sm font-semibold bg-amber-50 text-[#B5893E] border-l-4 border-[#B5893E] transition-all"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
                     >Profil Perpustakaan</a
                   >
                   <a
-                    href="/#denah"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all"
+                    href="/denah/"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
                     >Denah & Lokasi</a
                   >
                   <a
                     href="/staff/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
                     >Pimpinan & Staff</a
                   >
                 </div>
               </div>
             </div>
 
-            <div class="relative group py-2">
-              <a
-                href="/#layanan"
-                class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
+            <div class="relative dropdown-container">
+              <button
+                class="dropdown-btn w-full flex justify-between items-center hover:text-[#B5893E] uppercase"
               >
-                LAYANAN
-                <i
-                  class="fa-solid fa-chevron-down ml-2 text-xs mt-1 group-hover:rotate-180 transition-transform duration-300"
-                ></i>
-              </a>
+                Layanan <i class="fa-solid fa-chevron-down text-xs ml-1"></i>
+              </button>
               <div
-                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100"
+                class="dropdown-content hidden md:absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-xl p-2 space-y-1"
               >
-                <div class="py-2">
-                  <a
-                    href="/#peminjaman"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all"
-                    >Peminjaman</a
-                  >
-                  <a
-                    href="/#ruang-baca"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E] hover:pl-8 transition-all"
-                    >Ruang Baca</a
-                  >
-                </div>
+                <a
+                  href="{% url 'peminjaman' %}"
+                  class="block px-4 py-2 text-sm hover:bg-amber-50 rounded-lg"
+                  >Prosedur Pinjam</a
+                >
               </div>
             </div>
 
@@ -148,36 +134,38 @@
               </div>
             </div>
 
+            <a href="#rekomendasi" class="hover:text-[#B5893E] uppercase"
+              >Top Buku</a
+            >
+
             <a
-              href="/#agenda"
-              class="hover:text-[#B5893E] transition flex items-center hover:-translate-y-0.5 duration-200"
+              href="#agenda"
+              class="hover:text-[#B5893E] transition flex items-center"
               >AGENDA</a
             >
+
+            <a href="#dokumentasi" class="hover:text-[#B5893E] uppercase"
+              >Dokumentasi</a
+            >
+
             <a
-              href="/#kontak"
-              class="hover:text-[#B5893E] transition flex items-center hover:-translate-y-0.5 duration-200"
+              href="#kontak"
+              class="hover:text-[#B5893E] transition flex items-center"
               >KONTAK</a
             >
           </div>
         </div>
-      </div>
 
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4 px-6"
-      >
-        <a href="/" class="hover:text-[#B5893E]">BERANDA</a>
-        <a href="/#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
-        <a
-          href="/profil/"
-          class="text-[#B5893E] pl-4 border-l-2 border-[#B5893E]"
-          >Profil Perpustakaan</a
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4"
         >
-        <a href="/staff/" class="hover:text-[#B5893E] pl-4">Pimpinan & Staff</a>
-        <a href="/#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
-        <a href="/panduan" class="hover:text-[#B5893E]">PANDUAN</a>
-        <a href="/#agenda" class="hover:text-[#B5893E]">AGENDA</a>
-        <a href="/#kontak" class="hover:text-[#B5893E]">KONTAK</a>
+          <a href="#beranda" class="hover:text-[#B5893E]">BERANDA</a>
+          <a href="#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
+          <a href="#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
+          <a href="#agenda" class="hover:text-[#B5893E]">AGENDA</a>
+          <a href="#kontak" class="hover:text-[#B5893E]">KONTAK</a>
+        </div>
       </div>
     </nav>
 
