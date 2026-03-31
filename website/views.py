@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Buku, Agenda, Dokumentasi
+from django.utils import timezone
 
 def index(request):
     # Ambil 5 buku fiksi & 5 non-fiksi untuk section Top Rekomendasi
@@ -7,7 +8,12 @@ def index(request):
     buku_nonfiksi = Buku.objects.filter(kategori='nonfiksi')[:5]
     
     # Ambil semua data agenda & dokumentasi
-    list_agenda = Agenda.objects.all().order_by('-tanggal') # yang terbaru di atas
+    hari_ini = timezone.now().date()
+    
+    # Filter agenda yang tanggalnya HARI INI atau DI MASA DEPAN
+    # Diurutkan berdasarkan tanggal yang paling dekat ('tanggal' tanpa minus)
+    # Lalu batasi hanya tampil 3 agenda saja
+    list_agenda = Agenda.objects.filter(tanggal__gte=hari_ini).order_by('tanggal')[:3]
     galeri = Dokumentasi.objects.all()
 
     context = {
@@ -56,3 +62,15 @@ def tutorial_member(request):
 
 def tata_tertib(request):
     return render(request, 'tata_tertib.html')
+
+def fasilitas(request):
+    return render(request, 'fasilitas.html')
+
+def agenda(request):
+    # Menarik semua agenda, diurutkan dari yang terbaru (-tanggal)
+    agenda_lengkap = Event.objects.all().order_by('-tanggal')
+    
+    context = {
+        'agenda': agenda_lengkap
+    }
+    return render(request, 'agenda.html', context)

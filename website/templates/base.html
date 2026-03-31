@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Perpustakaan Ganesa{% endblock %}</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-white">
+
+    <nav class="bg-[#F8FAFC] shadow-md fixed w-full top-0 z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          
+          <a href="/#beranda" class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="flex flex-col justify-center mt-1">
+              <span class="text-3xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+              <span class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+            </div>
+          </a>
+
+          <button id="mobile-menu-button" class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]">
+            <a href="/#beranda" class="hover:text-[#B5893E] transition flex items-center">BERANDA</a>
+
+            <div class="relative group py-2">
+              <a href="/#tentang" class="hover:text-[#B5893E] flex items-center transition cursor-pointer">
+                TENTANG <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div class="absolute top-full left-0 pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="bg-white border border-gray-100 rounded-xl shadow-xl py-2">
+                  <a href="/profil/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Profil Perpustakaan</a>
+                  <a href="/denah/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Denah & Lokasi</a>
+                  <a href="/staff/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Pimpinan & Staff</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">
+                LAYANAN <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="bg-white border border-gray-100 rounded-xl shadow-xl py-2">
+                  <a href="/fasilitas/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Fasilitas</a>
+                  <a href="/peminjaman/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Prosedur Peminjaman</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">
+                PANDUAN <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="bg-white border border-gray-100 rounded-xl shadow-xl py-2">
+                  <a href="/tutorial-member/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tutorial Membuat Kartu Member</a>
+                  <a href="/tata-tertib/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tata Tertib</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#rekomendasi" class="hover:text-[#B5893E] uppercase">Top Buku</a>
+            <a href="/#agenda" class="hover:text-[#B5893E] transition flex items-center">AGENDA</a>
+            <a href="/#dokumentasi" class="hover:text-[#B5893E] uppercase">Dokumentasi</a>
+            <a href="/#kontak" class="hover:text-[#B5893E] transition flex items-center">KONTAK</a>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4">
+          <a href="/#beranda" class="hover:text-[#B5893E]">BERANDA</a>
+          <a href="/#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
+          <a href="#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
+          <a href="/#agenda" class="hover:text-[#B5893E]">AGENDA</a>
+          <a href="/#kontak" class="hover:text-[#B5893E]">KONTAK</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-[88px]"> 
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="bg-[#0F172A] py-12 text-center text-gray-500 text-[10px] tracking-[0.3em] uppercase">
+      &copy; 2026 Ganesa Library Systems.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi animasi AOS
+        AOS.init({ duration: 800, once: true });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Dropdown Menu Layanan (Klik)
+            const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('hidden');
+                });
+            });
+
+            // Tutup dropdown layanan jika klik di luar area
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown-container')) {
+                    document.querySelectorAll('.dropdown-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                }
+            });
+
+            // 2. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+    <script>
+      // Mengaktifkan animasi saat di-scroll
+      AOS.init({
+        duration: 800, // Durasi animasi (800 milidetik)
+        easing: "ease-out", // Efek melambat di akhir
+        once: true, // Animasi hanya jalan 1x saat di-scroll ke bawah (biar elegan)
+        offset: 100, // Mulai animasi saat elemen berjarak 100px dari layar bawah
+      });
+    </script>
+        <script>
+      AOS.init({ duration: 800, once: true });
+
+      // Logic Mobile Menu & Dropdown gaya UMS
+      const burgerBtn = document.getElementById("burger-btn");
+      const navMenu = document.getElementById("nav-menu");
+      const burgerIcon = burgerBtn.querySelector("i");
+
+      burgerBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        burgerIcon.classList.toggle("fa-bars");
+        burgerIcon.classList.toggle("fa-xmark");
+      });
+
+      // Toggle dropdown klik di mobile
+      document.querySelectorAll(".dd-toggle").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            const menu = btn.nextElementSibling;
+            menu.classList.toggle("show");
+            btn.querySelector("i").classList.toggle("rotate-180");
+          }
+        });
+      });
+    </script>
+    <script>
+      // Mengaktifkan animasi saat di-scroll
+      AOS.init({
+        duration: 800, // Durasi animasi (800 milidetik)
+        easing: "ease-out", // Efek melambat di akhir
+        once: true, // Animasi hanya jalan 1x saat di-scroll ke bawah (biar elegan)
+        offset: 100, // Mulai animasi saat elemen berjarak 100px dari layar bawah
+      });
+    </script>
+  </body>
+  </body>
+</html>
+</body>
+</html>

@@ -11,4 +11,6 @@ urlpatterns = [
     path('peminjaman/', views.peminjaman, name='peminjaman'),
     path('tutorial-member/', views.tutorial_member, name='tutorial_member'),
     path('tata-tertib/', views.tata_tertib, name='tata_tertib'),
+    path('fasilitas/', views.fasilitas, name='fasilitas'),
+    path('agenda/', views.agenda, name='agenda'),
 ]

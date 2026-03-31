@@ -85,23 +85,33 @@
               </div>
             </div>
 
-            <div class="relative dropdown-container">
-              <button
-                class="dropdown-btn w-full flex justify-between items-center hover:text-[#B5893E] uppercase"
+           <div class="relative group py-2">
+              <a
+                href="#"
+                class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase"
               >
-                Layanan <i class="fa-solid fa-chevron-down text-xs ml-1"></i>
-              </button>
+                LAYANAN
+                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
               <div
-                class="dropdown-content hidden md:absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-xl p-2 space-y-1"
+                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
               >
-                <a
-                  href="{% url 'peminjaman' %}"
-                  class="block px-4 py-2 text-sm hover:bg-amber-50 rounded-lg"
-                  >Prosedur Pinjam</a
-                >
+                <div class="py-2">
+                  <a
+                    href="/fasilitas/" 
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                  >
+                    Fasilitas Perpustakaan
+                  </a>
+                  <a
+                    href="{% url 'peminjaman' %}"
+                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
+                  >
+                    Prosedur Pinjam
+                  </a>
+                </div>
               </div>
             </div>
-
             <div class="relative group py-2">
               <a
                 href="#"
@@ -380,45 +390,41 @@
           Agenda <span class="text-[#B5893E]">Kegiatan</span>
         </h2>
         <div class="w-24 h-1 bg-[#1D3557] mx-auto mb-16"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {% for item in agenda_list %}
-          <div
-            class="group relative bg-[#F8FAFC] rounded-3xl overflow-hidden shadow-lg border border-gray-100 text-left"
-          >
-            <div class="relative h-72 overflow-hidden">
-              {% if item.foto %}
-              <img
-                src="{{ item.foto.url }}"
-                class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-              />
-              {% endif %}
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-[#1D3557]/90 via-transparent to-transparent opacity-80"
-              ></div>
-              <div
-                class="absolute top-6 left-6 bg-[#B5893E] text-white px-5 py-1.5 rounded-full text-xs font-black"
-              >
-                {{ item.tanggal|date:"d M Y" }}
-              </div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-2xl font-bold text-[#1D3557] mb-2">
-                {{ item.judul }}
-              </h3>
-              <p class="text-gray-500 text-sm italic">
-                Online via Zoom Meetings
-              </p>
-            </div>
-          </div>
-          {% empty %}
-          <p
-            class="col-span-full text-center text-gray-400 py-20 font-bold uppercase italic"
-          >
-            Belum Ada Agenda
-          </p>
-          {% endfor %}
-        </div>
+       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+  {% for item in list_agenda %}
+  <div class="group relative bg-[#F8FAFC] rounded-2xl overflow-hidden shadow-lg border border-gray-100 text-left flex flex-col">
+    
+    <div class="relative aspect-[3/4] w-full overflow-hidden bg-gray-200">
+      {% if item.gambar %}
+      <img
+        src="{{ item.gambar.url }}"
+        class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+        alt="Poster {{ item.judul }}"
+      />
+      {% endif %}
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1D3557] via-transparent to-transparent opacity-80"></div>
+      
+      <div class="absolute top-4 left-4 bg-[#B5893E] text-white px-4 py-1 rounded-full text-xs font-black shadow-md">
+        {{ item.tanggal|date:"d M Y" }}
       </div>
+    </div>
+
+    <div class="p-5 flex-grow">
+      <h3 class="text-xl font-bold text-[#1D3557] mb-2 line-clamp-2">
+        {{ item.judul }} 
+      </h3>
+      <p class="text-gray-500 text-sm italic">
+        Online via Zoom Meetings
+      </p>
+    </div>
+  </div>
+  
+  {% empty %}
+  <p class="col-span-full text-center text-gray-400 py-20 font-bold uppercase italic">
+    Belum Ada Agenda
+  </p>
+  {% endfor %}
+</div>
     </section>
 
     <section id="dokumentasi" class="py-20 bg-white">

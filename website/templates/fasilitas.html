@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fasilitas - Perpustakaan Ganesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC] text-gray-900">
+
+    <nav class="bg-[#F8FAFC] shadow-md sticky top-0 z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="flex flex-col justify-center mt-1">
+              <span class="text-3xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+              <span class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+            </div>
+          </a>
+
+          <button id="mobile-menu-button" class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]">
+            <a href="/" class="hover:text-[#B5893E] transition flex items-center">BERANDA</a>
+            
+            <div class="relative group py-2">
+              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer">
+                TENTANG <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="py-2">
+                  <a href="/profil/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Profil Perpustakaan</a>
+                  <a href="/denah/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Denah & Lokasi</a>
+                  <a href="/staff/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Pimpinan & Staff</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">
+                LAYANAN <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="py-2">
+                  <a href="{% url 'fasilitas' %}" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Fasilitas Perpustakaan</a>
+                  <a href="{% url 'peminjaman' %}" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Prosedur Pinjam</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative group py-2">
+              <a href="#" class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase">
+                PANDUAN <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
+              </a>
+              <div class="absolute top-full left-0 mt-2 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div class="py-2">
+                  <a href="/tutorial-member/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tutorial Membuat Kartu Member</a>
+                  <a href="/tata-tertib/" class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]">Tata Tertib</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#rekomendasi" class="hover:text-[#B5893E] uppercase">Top Buku</a>
+            <a href="/#agenda" class="hover:text-[#B5893E] transition flex items-center">AGENDA</a>
+            <a href="/#dokumentasi" class="hover:text-[#B5893E] uppercase">Dokumentasi</a>
+            <a href="/#kontak" class="hover:text-[#B5893E] transition flex items-center">KONTAK</a>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4">
+          <a href="/" class="hover:text-[#B5893E]">BERANDA</a>
+          <a href="/profil/" class="hover:text-[#B5893E]">TENTANG KAMI</a>
+          <a href="{% url 'fasilitas' %}" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
+          <a href="/#agenda" class="hover:text-[#B5893E]">AGENDA</a>
+          <a href="/#kontak" class="hover:text-[#B5893E]">KONTAK</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <main class="min-h-screen pt-10">
+      <section id="layanan" class="py-16 bg-gray-50 border-y border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+          
+          <div data-aos="fade-up" class="text-center mb-16">
+            <span class="text-[#B5893E] font-bold tracking-[0.2em] uppercase text-sm">Layanan Kami</span>
+            <h2 class="text-3xl md:text-4xl font-black text-[#1D3557] mt-2 mb-4">Fasilitas Perpustakaan</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+              Nikmati berbagai fasilitas pendukung yang kami sediakan untuk memberikan pengalaman membaca, belajar, dan berdiskusi yang maksimal.
+            </p>
+          </div>
+  
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+              <div class="w-16 h-16 bg-blue-50 text-[#1D3557] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#1D3557] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <i class="fa-solid fa-book-open-reader"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3">Ruang Baca Nyaman</h3>
+              <p class="text-gray-600 leading-relaxed text-sm md:text-base">Area membaca yang tenang, sejuk, dan dilengkapi tempat duduk ergonomis agar Anda betah berlama-lama menyelami isi buku.</p>
+            </div>
+  
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+              <div class="w-16 h-16 bg-amber-50 text-[#B5893E] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#B5893E] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <i class="fa-solid fa-wifi"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3">Akses Wi-Fi Gratis</h3>
+              <p class="text-gray-600 leading-relaxed text-sm md:text-base">Koneksi internet cepat dan stabil yang tersedia di seluruh area perpustakaan untuk mendukung riset dan pengerjaan tugas Anda.</p>
+            </div>
+  
+            <div data-aos="fade-up" data-aos-delay="300" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+              <div class="w-16 h-16 bg-blue-50 text-[#1D3557] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#1D3557] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <i class="fa-solid fa-swatchbook"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3">Koleksi Buku Lengkap</h3>
+              <p class="text-gray-600 leading-relaxed text-sm md:text-base">Ribuan koleksi bahan pustaka mulai dari fiksi, literatur akademik, sejarah, hingga ensiklopedia anak yang rutin diperbarui.</p>
+            </div>
+  
+            <div data-aos="fade-up" data-aos-delay="400" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+              <div class="w-16 h-16 bg-amber-50 text-[#B5893E] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#B5893E] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <i class="fa-solid fa-users-rectangle"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3">Ruang Komunitas</h3>
+              <p class="text-gray-600 leading-relaxed text-sm md:text-base">Fasilitas ruang pertemuan khusus yang bisa digunakan untuk kegiatan bedah buku, diskusi kelompok, atau pertemuan organisasi.</p>
+            </div>
+  
+            <div data-aos="fade-up" data-aos-delay="500" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+              <div class="w-16 h-16 bg-blue-50 text-[#1D3557] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#1D3557] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <i class="fa-solid fa-desktop"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3">Katalog & PC Publik</h3>
+              <p class="text-gray-600 leading-relaxed text-sm md:text-base">Akses komputer publik (OPAC) untuk memudahkan Anda mencari lokasi rak buku secara digital tanpa perlu berkeliling.</p>
+            </div>
+  
+            <div data-aos="fade-up" data-aos-delay="600" class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group">
+              <div class="w-16 h-16 bg-amber-50 text-[#B5893E] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#B5893E] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <i class="fa-solid fa-child-reaching"></i>
+              </div>
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3">Area Anak (Kids Corner)</h3>
+              <p class="text-gray-600 leading-relaxed text-sm md:text-base">Area khusus yang dirancang interaktif dan aman dengan koleksi buku bergambar untuk menumbuhkan minat baca sejak dini.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <footer class="bg-[#0F172A] py-12 text-center text-gray-500 text-[10px] tracking-[0.3em] uppercase">
+      &copy; 2026 Ganesa Library Systems. "Karena Membaca Itu Menyenangkan"
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+      
+      const mobileBtn = document.getElementById("mobile-menu-button");
+      const navMenu = document.getElementById("mobile-menu");
+      if (mobileBtn && navMenu) {
+        mobileBtn.addEventListener("click", () => {
+          navMenu.classList.toggle("hidden");
+        });
+      }
+    </script>
+  </body>
+</html>

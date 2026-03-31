@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semua Agenda - Perpustakaan Ganesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-[#F8FAFC] text-gray-900 flex flex-col min-h-screen">
+
+    <nav class="bg-[#F8FAFC] shadow-md sticky top-0 z-50">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center space-x-3">
+          <div class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="flex flex-col justify-center mt-1">
+            <span class="text-3xl font-black text-[#1D3557] leading-none tracking-tight">GANESA</span>
+            <span class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1">PERPUSTAKAAN</span>
+          </div>
+        </a>
+        <a href="/" class="hidden md:flex items-center font-bold text-[#1D3557] hover:text-[#B5893E] transition">
+          <i class="fa-solid fa-arrow-left mr-2"></i> KEMBALI KE BERANDA
+        </a>
+      </div>
+    </nav>
+
+    <main class="flex-grow py-16">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-black text-[#1D3557] uppercase mb-4">
+            Arsip <span class="text-[#B5893E]">Agenda</span>
+          </h1>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+            Jelajahi seluruh riwayat kegiatan, seminar, dan acara yang pernah diselenggarakan oleh Perpustakaan Ganesa.
+          </p>
+          <div class="w-24 h-1 bg-[#1D3557] mx-auto mt-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {% for item in semua_agenda %}
+          <div class="group relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 text-left hover:shadow-xl transition duration-300 flex flex-col">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              {% if item.foto %}
+              <img src="{{ item.foto.url }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" />
+              {% else %}
+              <div class="w-full h-full flex items-center justify-center text-gray-400">
+                <i class="fa-solid fa-image text-5xl"></i>
+              </div>
+              {% endif %}
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1D3557]/90 via-transparent to-transparent opacity-80"></div>
+              <div class="absolute top-4 left-4 bg-[#B5893E] text-white px-4 py-1.5 rounded-full text-xs font-black shadow-lg">
+                {{ item.tanggal|date:"d M Y" }}
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-xl font-bold text-[#1D3557] mb-3 line-clamp-2">
+                {{ item.judul }}
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                {{ item.deskripsi }}
+              </p>
+              <div class="mt-auto">
+                <p class="text-[#B5893E] text-xs font-bold uppercase tracking-wider">
+                  <i class="fa-regular fa-clock mr-1"></i> {{ item.tanggal|time:"H:i" }} WIB
+                </p>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-span-full text-center py-20">
+            <i class="fa-regular fa-calendar-xmark text-6xl text-gray-300 mb-4"></i>
+            <p class="text-gray-500 font-bold uppercase tracking-widest">Belum Ada Agenda Terdaftar</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-[#0F172A] py-10 text-center text-gray-500 text-[10px] tracking-[0.3em] uppercase">
+      &copy; 2026 Ganesa Library Systems. "Karena Membaca Itu Menyenangkan"
+    </footer>
+
+  </body>
+</html>
