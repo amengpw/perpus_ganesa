@@ -1,22 +1,30 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block title %}Pimpinan & Staff - Perpustakaan Ganesa{% endblock %}
-
-{% block extra_css %}
+{% extends 'base.html' %} {% load static %} {% block title %}Pimpinan & Staff -
+Perpustakaan Ganesa{% endblock %} {% block extra_css %}
 <style>
   /* === ANIMASI MUNCUL SAAT LOAD HALAMAN === */
   @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .animate-fade-in {
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.3s; }
-  .delay-300 { animation-delay: 0.5s; }
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.3s;
+  }
+  .delay-300 {
+    animation-delay: 0.5s;
+  }
 
   /* === STYLING FOTO STAF & HOVER === */
   .staff-photo-container {
@@ -63,117 +71,204 @@
     transform: translateY(0);
   }
 </style>
-{% endblock %}
+{% endblock %} {% block content %}
+<header
+  class="relative bg-[#1a2332] py-28 bg-cover bg-center animate-fade-in"
+  style="
+    background-image: url(&quot;https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop&quot;);
+  "
+>
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-[#1D3557]/90 to-black/60"
+  ></div>
+  <div
+    class="relative container mx-auto px-6 z-10 flex flex-col items-center text-center md:items-start md:text-left"
+  >
+    <div
+      class="bg-[#B5893E] px-8 py-4 mb-5 shadow-2xl transform -skew-x-6 hover:skew-x-0 transition-transform duration-300"
+    >
+      <h1
+        class="text-3xl md:text-5xl font-bold text-white tracking-wide skew-x-6 hover:-skew-x-0"
+      >
+        Pimpinan dan Staff
+      </h1>
+    </div>
+    <p
+      class="text-white text-lg md:text-xl max-w-2xl font-medium drop-shadow-md"
+    >
+      Mengenal Lebih Dekat Pengelola Perpustakaan Ganesa
+    </p>
+  </div>
+</header>
 
-{% block content %}
-    <header class="relative bg-[#1a2332] py-28 bg-cover bg-center animate-fade-in" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop');">
-      <div class="absolute inset-0 bg-gradient-to-r from-[#1D3557]/90 to-black/60"></div>
-      <div class="relative container mx-auto px-6 z-10 flex flex-col items-center text-center md:items-start md:text-left">
-        <div class="bg-[#B5893E] px-8 py-4 mb-5 shadow-2xl transform -skew-x-6 hover:skew-x-0 transition-transform duration-300">
-          <h1 class="text-3xl md:text-5xl font-bold text-white tracking-wide skew-x-6 hover:-skew-x-0">
-            Pimpinan dan Staff
-          </h1>
-        </div>
-        <p class="text-white text-lg md:text-xl max-w-2xl font-medium drop-shadow-md">
-          Mengenal Lebih Dekat Pengelola Perpustakaan Ganesa
-        </p>
-      </div>
-    </header>
+<section class="py-16 container mx-auto px-6 animate-fade-in delay-100">
+  <div
+    class="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 text-center hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300"
+  >
+    <h2 class="text-2xl md:text-3xl font-bold text-[#1D3557] mb-8">
+      Struktur Organisasi LSM Ganesa
+    </h2>
+    <img
+      src="{% static 'foto_staff/struktur.png' %}"
+      class="w-full max-w-4xl mx-auto rounded-lg transition-transform duration-500 hover:scale-[1.02]"
+      alt="Struktur Organisasi"
+    />
+  </div>
+</section>
 
-    <section class="py-16 container mx-auto px-6 animate-fade-in delay-100">
-      <div class="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 text-center hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300">
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1D3557] mb-8">
-          Struktur Organisasi LSM Ganesa
-        </h2>
-        <img src="{% static 'foto_staff/struktur.png' %}" class="w-full max-w-4xl mx-auto rounded-lg transition-transform duration-500 hover:scale-[1.02]" alt="Struktur Organisasi"/>
-      </div>
-    </section>
-
-    <section class="pb-24 container mx-auto px-6 max-w-6xl animate-fade-in delay-200">
-      <h3 class="text-2xl md:text-3xl font-black text-center text-[#1D3557] uppercase tracking-wider mb-12 border-b-4 border-[#B5893E] inline-block pb-2 mx-auto flex justify-center w-fit">
+<section
+  class="pb-24 container mx-auto px-6 max-w-6xl animate-fade-in delay-200"
+>
+  <section
+    class="pb-24 container mx-auto px-6 max-w-6xl animate-fade-in delay-200"
+  >
+    <div class="animate-fade-in delay-300">
+      <h3
+        class="text-2xl md:text-3xl font-black text-center text-[#1D3557] uppercase tracking-wider mb-12 border-b-4 border-[#B5893E] inline-block pb-2 mx-auto flex justify-center w-fit"
+      >
         Susunan Pengurus LSM Ganesa
       </h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 mb-24">
-        
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-4xl mx-auto"
+      >
         <div class="text-center group">
           <div class="staff-photo-container">
-            <img src="{% static 'foto_staff/male.jpeg' %}" class="staff-photo" alt="Nurudin"/>
+            <img
+              src="{% static 'foto_staff/male.jpeg' %}"
+              class="staff-photo"
+              alt="Nurudin"
+            />
             <div class="jabatan-overlay text-left">
-              <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Dewan Pembina</span>
+              <span
+                class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md"
+                >Dewan Pembina</span
+              >
             </div>
           </div>
-          <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl group-hover:text-[#B5893E] transition-colors duration-300">H. Muchammad Nurudin</h4>
+          <h4
+            class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300"
+          >
+            H. Muchammad Nurudin
+          </h4>
         </div>
 
         <div class="text-center group">
           <div class="staff-photo-container">
-            <img src="{% static 'foto_staff/male.jpeg' %}" class="staff-photo" alt="Andri"/>
+            <img
+              src="{% static 'foto_staff/male.jpeg' %}"
+              class="staff-photo"
+              alt="Andri"
+            />
             <div class="jabatan-overlay text-left">
-              <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Pengelola LSM Ganesa</span>
+              <span
+                class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md"
+                >Pengelola LSM Ganesa</span
+              >
             </div>
           </div>
-          <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300">M. Andri Setyawan, S.H</h4>
+          <h4
+            class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300"
+          >
+            M. Andri Setyawan, S.H
+          </h4>
         </div>
 
         <div class="text-center group">
           <div class="staff-photo-container">
-            <img src="{% static 'foto_staff/female.jpeg' %}" class="staff-photo" alt="Ambar"/>
+            <img
+              src="{% static 'foto_staff/female.jpeg' %}"
+              class="staff-photo"
+              alt="Ambar"
+            />
             <div class="jabatan-overlay text-left">
-              <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Sekretaris</span>
+              <span
+                class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md"
+                >Sekretaris</span
+              >
             </div>
           </div>
-          <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300">Ambar Puspa Galih M.S.E</h4>
-        </div>
-
-        <div class="text-center group">
-          <div class="staff-photo-container">
-            <img src="{% static 'foto_staff/female.jpeg' %}" class="staff-photo" alt="Dyah"/>
-            <div class="jabatan-overlay text-left">
-              <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Bendahara</span>
-            </div>
-          </div>
-          <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300">Dyah Ratna Heryati</h4>
-        </div>
-
-      </div>
-
-      <div class="animate-fade-in delay-300">
-        <h3 class="text-2xl md:text-3xl font-black text-center text-[#1D3557] uppercase tracking-wider mb-12 border-b-4 border-[#B5893E] inline-block pb-2 mx-auto flex justify-center w-fit">
-          Pegawai Tetap LSM Ganesa
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
-          
-          <div class="text-center group">
-            <div class="staff-photo-container">
-              <img src="{% static 'foto_staff/female.jpeg' %}" class="staff-photo" alt="Candra"/>
-              <div class="jabatan-overlay text-left">
-                <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Pustakawati Pengadaan / Ketua Tim</span>
-              </div>
-            </div>
-            <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300">Candra Dewi A.T, A.Md</h4>
-          </div>
-
-          <div class="text-center group">
-            <div class="staff-photo-container">
-              <img src="{% static 'foto_staff/female.jpeg' %}" class="staff-photo" alt="Risma"/>
-              <div class="jabatan-overlay text-left">
-                <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Pustakawati Sirkulasi</span>
-              </div>
-            </div>
-            <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300">Risma Rahmawati</h4>
-          </div>
-
-          <div class="text-center group">
-            <div class="staff-photo-container">
-              <img src="{% static 'foto_staff/male.jpeg' %}" class="staff-photo" alt="Sulis"/>
-              <div class="jabatan-overlay text-left">
-                <span class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md">Pegawai Umum</span>
-              </div>
-            </div>
-            <h4 class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300">Sulis Dimas Saputro</h4>
-          </div>
-
+          <h4
+            class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300"
+          >
+            Ambar Puspa Galih M.S.E
+          </h4>
         </div>
       </div>
-    </section>
-{% endblock content %}
+    
+
+    <div class="animate-fade-in delay-300 mt-24"> 
+      <h3
+        class="text-2xl md:text-3xl font-black text-center text-[#1D3557] uppercase tracking-wider mb-12 border-b-4 border-[#B5893E] inline-block pb-2 mx-auto flex justify-center w-fit"
+      >
+        Pegawai Tetap LSM Ganesa
+      </h3>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-4xl mx-auto"
+      >
+        <div class="text-center group">
+          <div class="staff-photo-container">
+            <img
+              src="{% static 'foto_staff/female.jpeg' %}"
+              class="staff-photo"
+              alt="Candra"
+            />
+            <div class="jabatan-overlay text-left">
+              <span
+                class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md"
+                >Pustakawati Pengadaan / Ketua Tim</span
+              >
+            </div>
+          </div>
+          <h4
+            class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300"
+          >
+            Candra Dewi A.T, A.Md
+          </h4>
+        </div>
+
+        <div class="text-center group">
+          <div class="staff-photo-container">
+            <img
+              src="{% static 'foto_staff/female.jpeg' %}"
+              class="staff-photo"
+              alt="Risma"
+            />
+            <div class="jabatan-overlay text-left">
+              <span
+                class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md"
+                >Pustakawati Sirkulasi</span
+              >
+            </div>
+          </div>
+          <h4
+            class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300"
+          >
+            Risma Rahmawati
+          </h4>
+        </div>
+
+        <div class="text-center group">
+          <div class="staff-photo-container">
+            <img
+              src="{% static 'foto_staff/male.jpeg' %}"
+              class="staff-photo"
+              alt="Sulis"
+            />
+            <div class="jabatan-overlay text-left">
+              <span
+                class="text-amber-400 font-bold text-sm md:text-base uppercase tracking-wider leading-tight drop-shadow-md"
+                >Pegawai Umum</span
+              >
+            </div>
+          </div>
+          <h4
+            class="mt-6 font-bold text-[#1D3557] text-lg md:text-xl px-2 group-hover:text-[#B5893E] transition-colors duration-300"
+          >
+            Sulis Dimas Saputro
+          </h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock content %}
+</section>
