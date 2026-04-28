@@ -1,191 +1,11 @@
-<!doctype html>
-<html lang="id" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perpustakaan Ganesa | Budaya & Literasi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-[#F8FAFC] text-gray-900">
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+{% extends 'base.html' %}
+{% load static %}
 
-    <nav class="bg-[#F8FAFC] shadow-md sticky top-0 z-50">
-      <div class="container mx-auto px-6 py-4">
-        <div class="flex justify-between items-center">
-          <a href="#beranda" class="flex items-center space-x-3">
-            <div
-              class="w-12 h-12 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500 overflow-hidden"
-            >
-              <i class="fa-solid fa-book-open"></i>
-            </div>
-            <div class="flex flex-col justify-center mt-1">
-              <span
-                class="text-3xl font-black text-[#1D3557] leading-none tracking-tight"
-                >GANESA</span
-              >
-              <span
-                class="text-xs font-bold text-[#B5893E] tracking-[0.3em] leading-none mt-1"
-                >PERPUSTAKAAN</span
-              >
-            </div>
-          </a>
+{% block title %}Perpustakaan Ganesa | Budaya & Literasi{% endblock %}
 
-          <button
-            id="mobile-menu-button"
-            class="md:hidden text-[#1D3557] hover:text-[#B5893E] focus:outline-none text-2xl"
-          >
-            <i class="fa-solid fa-bars"></i>
-          </button>
-
-          <div
-            class="hidden md:flex space-x-10 items-center text-base lg:text-lg font-bold text-[#1D3557]"
-          >
-            <a
-              href="#beranda"
-              class="hover:text-[#B5893E] transition flex items-center"
-              >BERANDA</a
-            >
-
-            <div class="relative group py-2">
-              <a
-                href="#tentang"
-                class="hover:text-[#B5893E] flex items-center transition cursor-pointer"
-              >
-                TENTANG
-                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
-              </a>
-              <div
-                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-              >
-                <div class="py-2">
-                  <a
-                    href="/profil/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Profil Perpustakaan</a
-                  >
-                  <a
-                    href="/denah/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Denah & Lokasi</a
-                  >
-                  <a
-                    href="/staff/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Pimpinan & Staff</a
-                  >
-                </div>
-              </div>
-            </div>
-
-           <div class="relative group py-2">
-              <a
-                href="#"
-                class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase"
-              >
-                LAYANAN
-                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
-              </a>
-              <div
-                class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-              >
-                <div class="py-2">
-                  <a
-                    href="/fasilitas/" 
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                  >
-                    Fasilitas Perpustakaan
-                  </a>
-                  <a
-                    href="{% url 'peminjaman' %}"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                  >
-                    Prosedur Pinjam
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="relative group py-2">
-              <a
-                href="#"
-                class="hover:text-[#B5893E] flex items-center transition cursor-pointer uppercase"
-              >
-                PANDUAN
-                <i class="fa-solid fa-chevron-down ml-2 text-xs mt-1"></i>
-              </a>
-              <div
-                class="absolute top-full left-0 mt-2 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-              >
-                <div class="py-2">
-                  <a
-                    href="/tutorial-member/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Tutorial Membuat Kartu Member</a
-                  >
-                  <a
-                    href="/tata-tertib/"
-                    class="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-amber-50 hover:text-[#B5893E]"
-                    >Tata Tertib</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <a href="#rekomendasi" class="hover:text-[#B5893E] uppercase"
-              >Top Buku</a
-            >
-
-            <a
-              href="#agenda"
-              class="hover:text-[#B5893E] transition flex items-center"
-              >AGENDA</a
-            >
-
-            <a href="#dokumentasi" class="hover:text-[#B5893E] uppercase"
-              >Dokumentasi</a
-            >
-
-            <a
-              href="#kontak"
-              class="hover:text-[#B5893E] transition flex items-center"
-              >KONTAK</a
-            >
-          </div>
-        </div>
-
-        <div
-          id="mobile-menu"
-          class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4"
-        >
-          <a href="#beranda" class="hover:text-[#B5893E]">BERANDA</a>
-          <a href="#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
-          <a href="#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
-          <a href="#agenda" class="hover:text-[#B5893E]">AGENDA</a>
-          <a href="#kontak" class="hover:text-[#B5893E]">KONTAK</a>
-        </div>
-      </div>
-    </nav>
-
-    <script>
-      const btn = document.getElementById("mobile-menu-button");
-      const menu = document.getElementById("mobile-menu");
-
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-    </script>
-
+{% block content %}
     <section id="beranda" class="relative bg-gray-50 pb-24">
-      <div
-        class="relative w-full min-h-[100vh] lg:min-h-[700px] bg-[#1D3557] overflow-hidden flex items-center pt-20 pb-32"
-      >
+      <div class="relative w-full min-h-[100vh] lg:min-h-[700px] bg-[#1D3557] overflow-hidden flex items-center pt-20 pb-32">
         <img
           src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop"
           alt="Perpustakaan Ganesa"
@@ -193,88 +13,52 @@
         />
 
         <div class="container mx-auto px-6 relative z-10 w-full">
-          <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center"
-          >
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
             <div class="text-white text-center lg:text-left">
-              <span
-                class="inline-block px-4 py-1 bg-[#B5893E] text-white text-xs font-bold tracking-widest rounded-full mb-6"
-                >SELAMAT DATANG DI</span
-              >
-              <h1
-                class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight"
-              >
+              <span class="inline-block px-4 py-1 bg-[#B5893E] text-white text-xs font-bold tracking-widest rounded-full mb-6">SELAMAT DATANG DI</span>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
                 Perpustakaan<br />Ganesa
               </h1>
-              <p
-                class="text-base sm:text-lg text-gray-300 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
-              >
+              <p class="text-base sm:text-lg text-gray-300 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                 Jelajahi berbagai fasilitas unggulan dan ikuti agenda menarik untuk pengalaman literasi yang lebih berkesan bersama kami
               </p>
             </div>
 
-            <div
-              class="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-3xl text-white shadow-2xl w-full max-w-md mx-auto lg:ml-auto"
-            >
-              <h3
-                class="text-xl sm:text-2xl font-black mb-6 text-[#B5893E] flex items-center"
-              >
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-3xl text-white shadow-2xl w-full max-w-md mx-auto lg:ml-auto">
+              <h3 class="text-xl sm:text-2xl font-black mb-6 text-[#B5893E] flex items-center">
                 <i class="fa-solid fa-bullhorn mr-3"></i> Info & Agenda
               </h3>
 
               <div class="space-y-6">
                 <div class="relative pl-6 border-l-2 border-[#B5893E]">
-                  <div
-                    class="absolute w-4 h-4 bg-[#B5893E] border-4 border-[#1D3557] rounded-full -left-[9px] top-1"
-                  ></div>
+                  <div class="absolute w-4 h-4 bg-[#B5893E] border-4 border-[#1D3557] rounded-full -left-[9px] top-1"></div>
                   <p class="text-sm font-bold text-gray-200">Jam Operasional</p>
-                  <p class="text-base sm:text-lg font-bold text-white mt-1">
-                    Selasa - Sabtu | 09:00 - 17:00
-                  </p>
-                  <p class="text-base sm:text-lg font-bold text-white mt-1">
-                    Minggu | 12:00 - 17:00
-                  </p>
-                  <p class="text-xs text-gray-400 mt-2 italic">
-                    Senin dan Libur Nasional | TUTUP.
-                  </p>
+                  <p class="text-base sm:text-lg font-bold text-white mt-1">Selasa - Sabtu | 09:00 - 17:00</p>
+                  <p class="text-base sm:text-lg font-bold text-white mt-1">Minggu | 12:00 - 17:00</p>
+                  <p class="text-xs text-gray-400 mt-2 italic">Senin dan Libur Nasional | TUTUP.</p>
                 </div>
 
                 <div class="relative pl-6 border-l-2 border-[#B5893E]">
-                  <div
-                    class="absolute w-4 h-4 bg-[#B5893E] border-4 border-[#1D3557] rounded-full -left-[9px] top-1"
-                  ></div>
+                  <div class="absolute w-4 h-4 bg-[#B5893E] border-4 border-[#1D3557] rounded-full -left-[9px] top-1"></div>
                   <p class="text-sm font-bold text-gray-200">Agenda Mingguan</p>
-                  <p class="text-base sm:text-lg font-bold text-white mt-1">
-                    Story Telling
-                  </p>
-                  <p class="text-xs text-gray-400 mt-2 italic">
-                    Diadakan setiap minggu di hari sabtu
-                  </p>
-                  <p class="text-base sm:text-lg font-bold text-white mt-1">
-                     Ganesa English Speaking
-                  </p>
-                  <p class="text-xs text-gray-400 mt-2 italic">
-                    Diadakan di hari sabtu (JIKA ADA VOLUNTEER)
-                  </p>
-                  <p class="text-sm font-bold text-gray-200">Note: untuk agenda lain bisa mengecek Instagram kami</p>
+                  <p class="text-base sm:text-lg font-bold text-white mt-1">Story Telling</p>
+                  <p class="text-xs text-gray-400 mt-2 italic">Diadakan setiap minggu di hari sabtu</p>
+                  <p class="text-base sm:text-lg font-bold text-white mt-1">Ganesa English Speaking</p>
+                  <p class="text-xs text-gray-400 mt-2 italic">Diadakan di hari sabtu (JIKA ADA VOLUNTEER)</p>
+                  <p class="text-sm font-bold text-gray-200 mt-2">Note: untuk agenda lain bisa mengecek Instagram kami</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
     <section id="rekomendasi" class="py-20 bg-white">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <p
-            class="text-[#B5893E] font-bold text-xs tracking-[0.3em] uppercase mb-2"
-          >
-            Pilihan Terbaik
-          </p>
-          <h2 class="text-3xl font-black text-[#1D3557] uppercase">
-            Top Rekomendasi
-          </h2>
+          <p class="text-[#B5893E] font-bold text-xs tracking-[0.3em] uppercase mb-2">Pilihan Terbaik</p>
+          <h2 class="text-3xl font-black text-[#1D3557] uppercase">Top Rekomendasi</h2>
         </div>
 
         <div class="mb-12">
@@ -284,20 +68,11 @@
           <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
             {% for buku in buku_nonfiksi %}
             <div class="group cursor-pointer" data-aos="fade-up">
-              <div
-                class="aspect-[3/4] rounded-xl overflow-hidden shadow-lg mb-4 bg-gray-100"
-              >
-                <img
-                  src="{{ buku.cover.url }}"
-                  class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                />
+              <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-lg mb-4 bg-gray-100">
+                <img src="{{ buku.cover.url }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
               </div>
-              <h4 class="font-bold text-sm text-[#1D3557] line-clamp-1">
-                {{ buku.judul }}
-              </h4>
-              <p class="text-[10px] text-gray-400 uppercase tracking-wider">
-                {{ buku.penulis }}
-              </p>
+              <h4 class="font-bold text-sm text-[#1D3557] line-clamp-1">{{ buku.judul }}</h4>
+              <p class="text-[10px] text-gray-400 uppercase tracking-wider">{{ buku.penulis }}</p>
             </div>
             {% endfor %}
           </div>
@@ -310,20 +85,11 @@
           <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
             {% for buku in buku_fiksi %}
             <div class="group cursor-pointer" data-aos="fade-up">
-              <div
-                class="aspect-[3/4] rounded-xl overflow-hidden shadow-lg mb-4 bg-gray-100"
-              >
-                <img
-                  src="{{ buku.cover.url }}"
-                  class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                />
+              <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-lg mb-4 bg-gray-100">
+                <img src="{{ buku.cover.url }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
               </div>
-              <h4 class="font-bold text-sm text-[#1D3557] line-clamp-1">
-                {{ buku.judul }}
-              </h4>
-              <p class="text-[10px] text-gray-400 uppercase tracking-wider">
-                {{ buku.penulis }}
-              </p>
+              <h4 class="font-bold text-sm text-[#1D3557] line-clamp-1">{{ buku.judul }}</h4>
+              <p class="text-[10px] text-gray-400 uppercase tracking-wider">{{ buku.penulis }}</p>
             </div>
             {% endfor %}
           </div>
@@ -333,71 +99,43 @@
 
     <section id="agenda" class="py-24 bg-white">
       <div class="container mx-auto px-6 text-center">
-        <h2
-          class="text-4xl font-bold text-[#1D3557] mb-2 uppercase text-center"
-        >
+        <h2 class="text-4xl font-bold text-[#1D3557] mb-2 uppercase text-center">
           Agenda <span class="text-[#B5893E]">Kegiatan</span>
         </h2>
         <div class="w-24 h-1 bg-[#1D3557] mx-auto mb-16"></div>
-       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-  {% for item in list_agenda %}
-  <div class="group relative bg-[#F8FAFC] rounded-2xl overflow-hidden shadow-lg border border-gray-100 text-left flex flex-col">
-    
-    <div class="relative aspect-[3/4] w-full overflow-hidden bg-gray-200">
-      {% if item.gambar %}
-      <img
-        src="{{ item.gambar.url }}"
-        class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-        alt="Poster {{ item.judul }}"
-      />
-      {% endif %}
-      <div class="absolute inset-0 bg-gradient-to-t from-[#1D3557] via-transparent to-transparent opacity-80"></div>
-      
-      <div class="absolute top-4 left-4 bg-[#B5893E] text-white px-4 py-1 rounded-full text-xs font-black shadow-md">
-        {{ item.tanggal|date:"d M Y" }}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {% for item in list_agenda %}
+          <div class="group relative bg-[#F8FAFC] rounded-2xl overflow-hidden shadow-lg border border-gray-100 text-left flex flex-col">
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-gray-200">
+              {% if item.gambar %}
+              <img src="{{ item.gambar.url }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Poster {{ item.judul }}" />
+              {% endif %}
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1D3557] via-transparent to-transparent opacity-80"></div>
+              <div class="absolute top-4 left-4 bg-[#B5893E] text-white px-4 py-1 rounded-full text-xs font-black shadow-md">
+                {{ item.tanggal|date:"d M Y" }}
+              </div>
+            </div>
+            <div class="p-5 flex-grow">
+              <h3 class="text-xl font-bold text-[#1D3557] mb-2 line-clamp-2">{{ item.judul }}</h3>
+              <p class="text-gray-500 text-sm italic">Online via Zoom Meetings</p>
+            </div>
+          </div>
+          {% empty %}
+          <p class="col-span-full text-center text-gray-400 py-20 font-bold uppercase italic">Belum Ada Agenda</p>
+          {% endfor %}
+        </div>
       </div>
-    </div>
-
-    <div class="p-5 flex-grow">
-      <h3 class="text-xl font-bold text-[#1D3557] mb-2 line-clamp-2">
-        {{ item.judul }} 
-      </h3>
-      <p class="text-gray-500 text-sm italic">
-        Online via Zoom Meetings
-      </p>
-    </div>
-  </div>
-  
-  {% empty %}
-  <p class="col-span-full text-center text-gray-400 py-20 font-bold uppercase italic">
-    Belum Ada Agenda
-  </p>
-  {% endfor %}
-</div>
     </section>
 
     <section id="dokumentasi" class="py-20 bg-white">
       <div class="container mx-auto px-6">
-        <h2
-          class="text-3xl font-black text-[#1D3557] uppercase text-center mb-12"
-        >
-          Dokumentasi Kenangan
-        </h2>
+        <h2 class="text-3xl font-black text-[#1D3557] uppercase text-center mb-12">Dokumentasi Kenangan</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
           {% for foto in galeri %}
-          <div
-            class="overflow-hidden rounded-xl h-48 md:h-64 shadow-md group relative"
-          >
-            <img
-              src="{{ foto.gambar.url }}"
-              class="w-full h-full object-cover group-hover:rotate-2 group-hover:scale-110 transition duration-500"
-            />
-            <div
-              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4"
-            >
-              <p class="text-white text-[10px] font-bold uppercase text-center">
-                {{ foto.keterangan }}
-              </p>
+          <div class="overflow-hidden rounded-xl h-48 md:h-64 shadow-md group relative">
+            <img src="{{ foto.gambar.url }}" class="w-full h-full object-cover group-hover:rotate-2 group-hover:scale-110 transition duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+              <p class="text-white text-[10px] font-bold uppercase text-center">{{ foto.keterangan }}</p>
             </div>
           </div>
           {% endfor %}
@@ -411,62 +149,9 @@
           Hubungi <span class="text-[#B5893E]">Ganesa</span>
         </h2>
         <div class="flex flex-col md:flex-row justify-center gap-8 mt-10">
-         <a
-          href="https://wa.me/6282322494114"
-          target="_blank"
-          class="relative z-10 bg-white text-[#1D3557] px-10 py-4 rounded-xl font-bold hover:bg-[#B5893E] transition shadow-lg"
-        >WhatsApp Admin</a>
-          <a
-            href="https://www.instagram.com/ganesa_library/"
-            class="bg-transparent border-2 border-white px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-[#1D3557] transition shadow-lg"
-            >Instagram Kami</a
-          >
+          <a href="https://wa.me/6282322494114" target="_blank" class="relative z-10 bg-white text-[#1D3557] px-10 py-4 rounded-xl font-bold hover:bg-[#B5893E] transition shadow-lg">WhatsApp Admin</a>
+          <a href="https://www.instagram.com/ganesa_library/" class="bg-transparent border-2 border-white px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-[#1D3557] transition shadow-lg">Instagram Kami</a>
         </div>
       </div>
     </section>
-
-    <footer
-      class="bg-[#0F172A] py-12 text-center text-gray-500 text-[10px] tracking-[0.3em] uppercase"
-    >
-      &copy; 2026 Ganesa Library Systems. "Karena Membaca Itu Menyenangkan"
-    </footer>
-    <script>
-      // Script untuk Menu Burger Mobile
-      const mobileBtn = document.getElementById("mobile-menu-btn");
-      const navMenu = document.getElementById("nav-menu");
-
-      mobileBtn.addEventListener("click", () => {
-        navMenu.classList.toggle("hidden");
-        navMenu.classList.toggle("flex");
-      });
-
-      // Script untuk Dropdown di Mobile & Desktop (Click behavior)
-      const dropdowns = document.querySelectorAll(".dropdown-container");
-
-      dropdowns.forEach((dropdown) => {
-        const btn = dropdown.querySelector(".dropdown-btn");
-        const content = dropdown.querySelector(".dropdown-content");
-
-        btn.addEventListener("click", (e) => {
-          // Jika di mobile, kita cegah link loncat dan buka menu
-          if (window.innerWidth < 768) {
-            e.preventDefault();
-            content.classList.toggle("hidden");
-          }
-        });
-
-        // Tetap dukung Hover untuk Desktop
-        dropdown.addEventListener("mouseenter", () => {
-          if (window.innerWidth >= 768) {
-            content.classList.remove("hidden");
-          }
-        });
-        dropdown.addEventListener("mouseleave", () => {
-          if (window.innerWidth >= 768) {
-            content.classList.add("hidden");
-          }
-        });
-      });
-    </script>
-  </body>
-</html>
+{% endblock content %}

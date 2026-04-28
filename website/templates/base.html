@@ -13,7 +13,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-
     </style>
     {% block extra_css %}{% endblock %}
 </head>
@@ -84,12 +83,38 @@
           </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-4 font-bold text-[#1D3557] border-t pt-4">
-          <a href="/#beranda" class="hover:text-[#B5893E]">BERANDA</a>
-          <a href="/#tentang" class="hover:text-[#B5893E]">TENTANG KAMI</a>
-          <a href="#layanan" class="hover:text-[#B5893E]">LAYANAN KAMI</a>
-          <a href="/#agenda" class="hover:text-[#B5893E]">AGENDA</a>
-          <a href="/#kontak" class="hover:text-[#B5893E]">KONTAK</a>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex flex-col space-y-2 font-bold text-[#1D3557] border-t pt-4">
+          <a href="/#beranda" class="py-2 hover:text-[#B5893E]">BERANDA</a>
+
+          <div class="py-2">
+            <span class="text-gray-400 uppercase text-[10px] tracking-widest mb-2 block">Tentang Kami</span>
+            <div class="flex flex-col space-y-3 pl-4 border-l-2 border-gray-200 font-semibold text-sm">
+              <a href="/profil/" class="hover:text-[#B5893E]">Profil Perpustakaan</a>
+              <a href="/denah/" class="hover:text-[#B5893E]">Denah & Lokasi</a>
+              <a href="/staff/" class="hover:text-[#B5893E]">Pimpinan & Staff</a>
+            </div>
+          </div>
+
+          <div class="py-2">
+            <span class="text-gray-400 uppercase text-[10px] tracking-widest mb-2 block">Layanan</span>
+            <div class="flex flex-col space-y-3 pl-4 border-l-2 border-gray-200 font-semibold text-sm">
+              <a href="/fasilitas/" class="hover:text-[#B5893E]">Fasilitas Perpustakaan</a>
+              <a href="/peminjaman/" class="hover:text-[#B5893E]">Prosedur Pinjam</a>
+            </div>
+          </div>
+
+          <div class="py-2">
+            <span class="text-gray-400 uppercase text-[10px] tracking-widest mb-2 block">Panduan</span>
+            <div class="flex flex-col space-y-3 pl-4 border-l-2 border-gray-200 font-semibold text-sm">
+              <a href="/tutorial-member/" class="hover:text-[#B5893E]">Tutorial Kartu Member</a>
+              <a href="/tata-tertib/" class="hover:text-[#B5893E]">Tata Tertib</a>
+            </div>
+          </div>
+
+          <a href="/#rekomendasi" class="py-2 hover:text-[#B5893E] uppercase mt-2">Top Buku</a>
+          <a href="/#agenda" class="py-2 hover:text-[#B5893E]">AGENDA</a>
+          <a href="/#dokumentasi" class="py-2 hover:text-[#B5893E] uppercase">Dokumentasi</a>
+          <a href="/#kontak" class="py-2 hover:text-[#B5893E]">KONTAK</a>
         </div>
       </div>
     </nav>
@@ -105,84 +130,29 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inisialisasi animasi AOS
-        AOS.init({ duration: 800, once: true });
+        // Inisialisasi animasi AOS (Cukup 1x)
+        AOS.init({ 
+            duration: 800, 
+            easing: "ease-out",
+            once: true,
+            offset: 100
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Dropdown Menu Layanan (Klik)
-            const dropdownBtns = document.querySelectorAll('.dropdown-btn');
-            dropdownBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const content = this.nextElementSibling;
-                    content.classList.toggle('hidden');
-                });
-            });
-
-            // Tutup dropdown layanan jika klik di luar area
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.dropdown-container')) {
-                    document.querySelectorAll('.dropdown-content').forEach(content => {
-                        content.classList.add('hidden');
-                    });
-                }
-            });
-
-            // 2. Mobile Menu Toggle
+            // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const burgerIcon = mobileMenuBtn.querySelector("i");
+            
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
+                    // Ganti ikon burger ke ikon X
+                    burgerIcon.classList.toggle("fa-bars");
+                    burgerIcon.classList.toggle("fa-xmark");
                 });
             }
         });
     </script>
-    <script>
-      // Mengaktifkan animasi saat di-scroll
-      AOS.init({
-        duration: 800, // Durasi animasi (800 milidetik)
-        easing: "ease-out", // Efek melambat di akhir
-        once: true, // Animasi hanya jalan 1x saat di-scroll ke bawah (biar elegan)
-        offset: 100, // Mulai animasi saat elemen berjarak 100px dari layar bawah
-      });
-    </script>
-        <script>
-      AOS.init({ duration: 800, once: true });
-
-      // Logic Mobile Menu & Dropdown gaya UMS
-      const burgerBtn = document.getElementById("burger-btn");
-      const navMenu = document.getElementById("nav-menu");
-      const burgerIcon = burgerBtn.querySelector("i");
-
-      burgerBtn.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        burgerIcon.classList.toggle("fa-bars");
-        burgerIcon.classList.toggle("fa-xmark");
-      });
-
-      // Toggle dropdown klik di mobile
-      document.querySelectorAll(".dd-toggle").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          if (window.innerWidth < 768) {
-            const menu = btn.nextElementSibling;
-            menu.classList.toggle("show");
-            btn.querySelector("i").classList.toggle("rotate-180");
-          }
-        });
-      });
-    </script>
-    <script>
-      // Mengaktifkan animasi saat di-scroll
-      AOS.init({
-        duration: 800, // Durasi animasi (800 milidetik)
-        easing: "ease-out", // Efek melambat di akhir
-        once: true, // Animasi hanya jalan 1x saat di-scroll ke bawah (biar elegan)
-        offset: 100, // Mulai animasi saat elemen berjarak 100px dari layar bawah
-      });
-    </script>
-  </body>
-  </body>
-</html>
 </body>
 </html>
