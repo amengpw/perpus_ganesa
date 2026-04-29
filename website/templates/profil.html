@@ -36,17 +36,15 @@ Perpustakaan Ganesa{% endblock %} {% block content %}
         <h3 class="text-[#1D3557] text-2xl font-black mb-6">
           Video Profil Ganesa
         </h3>
-        <div
-          class="relative overflow-hidden rounded-2xl shadow-xl aspect-video bg-black"
-        >
-          <video
-            class="w-full h-full object-cover"
-            controls
-            poster="{% static 'images/thumbnail_video.jpg' %}"
-          >
-            <source src="{% static 'videos/compro.mp4' %}" type="video/mp4" />
-            Browser kamu tidak mendukung pemutar video.
-          </video>
+        <div class="relative overflow-hidden rounded-2xl shadow-xl aspect-video bg-black border border-gray-100">
+          <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/cL4Z27WEdiA?si=7tSlKz9sAMs1REbE" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
         </div>
         <div
           class="relative group cursor-pointer overflow-hidden rounded-2xl shadow-xl"
