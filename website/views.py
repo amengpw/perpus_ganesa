@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Buku, Agenda, Dokumentasi
 from django.utils import timezone
+from .models import Buku, Agenda, Dokumentasi
 
 def index(request):
     # Ambil 5 buku fiksi & 5 non-fiksi untuk section Top Rekomendasi
@@ -45,6 +45,10 @@ def detail_buku(request, id):
     buku = get_object_or_404(Buku, id=id)
     return render(request, 'detail_buku.html', {'buku': buku})
 
+def detail_agenda(request, id):
+    agenda = get_object_or_404(Agenda, id=id)
+    return render(request, 'detail_agenda.html', {'agenda': agenda})
+
 def profil(request):
     return render(request, 'profil.html')
 
@@ -68,9 +72,9 @@ def fasilitas(request):
 
 def agenda(request):
     # Menarik semua agenda, diurutkan dari yang terbaru (-tanggal)
-    agenda_lengkap = Event.objects.all().order_by('-tanggal')
+    semua_agenda = Agenda.objects.all().order_by('-tanggal')
     
     context = {
-        'agenda': agenda_lengkap
+        'semua_agenda': semua_agenda
     }
     return render(request, 'agenda.html', context)

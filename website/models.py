@@ -1,4 +1,6 @@
+from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils import timezone
 
 # Model untuk Buku (Gabungkan semua field di sini)
 class Buku(models.Model):
@@ -23,6 +25,13 @@ class Agenda(models.Model):
     # GANTI upload_image JADI upload_to
     gambar = models.ImageField(upload_to='agenda/')
     deskripsi = models.TextField()
+
+    def clean(self):
+        super().clean()
+        if self.tanggal and self.tanggal < timezone.localdate():
+            raise ValidationError({
+                'tanggal': 'Tanggal agenda tidak boleh lebih awal dari hari ini.'
+            })
 
     def __str__(self):
         return self.nama_agenda

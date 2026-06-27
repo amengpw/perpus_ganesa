@@ -40,10 +40,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {% for item in semua_agenda %}
-          <div class="group relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 text-left hover:shadow-xl transition duration-300 flex flex-col">
+          <a href="{% url 'detail_agenda' item.id %}" class="group relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 text-left hover:shadow-xl transition duration-300 flex flex-col">
             <div class="relative h-60 overflow-hidden bg-gray-100">
-              {% if item.foto %}
-              <img src="{{ item.foto.url }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" />
+              {% if item.gambar %}
+              <img src="{{ item.gambar.url }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Poster {{ item.nama_agenda }}" />
               {% else %}
               <div class="w-full h-full flex items-center justify-center text-gray-400">
                 <i class="fa-solid fa-image text-5xl"></i>
@@ -56,18 +56,18 @@
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <h3 class="text-xl font-bold text-[#1D3557] mb-3 line-clamp-2">
-                {{ item.judul }}
+                {{ item.nama_agenda }}
               </h3>
               <p class="text-gray-600 text-sm mb-4 line-clamp-3">
                 {{ item.deskripsi }}
               </p>
               <div class="mt-auto">
                 <p class="text-[#B5893E] text-xs font-bold uppercase tracking-wider">
-                  <i class="fa-regular fa-clock mr-1"></i> {{ item.tanggal|time:"H:i" }} WIB
+                  <i class="fa-solid fa-circle-info mr-1"></i> Klik untuk detail
                 </p>
               </div>
             </div>
-          </div>
+          </a>
           {% empty %}
           <div class="col-span-full text-center py-20">
             <i class="fa-regular fa-calendar-xmark text-6xl text-gray-300 mb-4"></i>
