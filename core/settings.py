@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     # Tambahkan .vercel.app agar bisa diakses setelah deploy
     '127.0.0.1',
     'localhost',
-    '.vercel.app',
+    'ganesalibrary.pythonanywhere.com',
 
 ]
 
